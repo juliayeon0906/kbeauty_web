@@ -2,12 +2,30 @@ import { createRouter } from "vue-router";
 import { createWebHashHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
+import Stylists from "@/views/Stylists.vue";
+import Services from "@/views/Services.vue";
+import Gallery from "@/views/Gallery.vue";
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/stylists',
+        name: 'Stylists',
+        component: Stylists
+    },
+    {
+        path: '/services',
+        name: 'Services',
+        component: Services,
+    },
+    {
+        path: '/gallery',
+        name: 'Gallery',
+        component: Gallery,
     },
     {
         path: '/about',
@@ -17,8 +35,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory('/'),
     routes
 })
 
-export default router
+export default router;
