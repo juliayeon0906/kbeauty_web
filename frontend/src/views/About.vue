@@ -93,16 +93,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
   box-shadow: 
     1px 1px 2px rgba(0, 0, 0, 1),
     -1px -1px 2px rgba(255, 255, 255, 1);
 }
 
 .learn-more-btn:hover {
-  transform: translateY(-2px);
-    box-shadow: 
-    2px 2px 4px #000000, 
-    -2px -2px 4px #FFFFFF;
+        background-color: #FF9D00;
+        color: #F2F2F2; 
 }
 
 .about-image {
