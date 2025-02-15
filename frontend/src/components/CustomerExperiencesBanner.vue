@@ -3,10 +3,15 @@
         <div class="exterior-banner">
             <div class="interior-banner">
                 <h2 class="header-text">Experience At K-Beauty</h2>
+                <Slider/>
             </div>
         </div>
     </div>
 </template>
+
+<script setup>
+import Slider from './Slider.vue';
+</script>
 
 <style scoped>
     .banner-container {
