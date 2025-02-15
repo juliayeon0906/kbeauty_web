@@ -1,3 +1,114 @@
 <template>
-    
+  <div class="about-page">
+    <div class="content-section">
+      <div class="content-wrapper">
+        <div class="image-content">
+          <img 
+            src="@/assets/images/GALLERY/20200702_162018.jpg" 
+            alt="About Image"
+            class="about-image"
+          />
+        </div>
+
+        <div class="text-content">
+          <div class="header-section">
+            <h1 class="header-text">ABOUT US</h1>
+          </div>
+          <p class="about-text">
+            K-Beauty is a hair salon in Halifax,
+            established in 2020 by Quinpool Road,
+            specializing in top-quality hair care and
+            premium Korean cosmetics. Combining
+            expert styling with cutting-edge K-beauty
+            products, we offer personalized services
+            that bring out your natural beauty while
+            keeping your hair healthy and vibrant.
+            Our team of skilled professionals is
+            dedicated to providing exceptional care
+            in a welcoming, modern space, ensuring
+            every client leaves feeling confident and
+            refreshed. At K-Beauty, our core value is
+            delivering great service with complete
+            customer satisfaction. Whether you're
+            looking for a bold new look or subtle
+            enhancements, K-Beauty delivers the
+            perfect blend of style and sophistication.
+          </p>
+          <button class="learn-more-btn">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+
+.header-section {
+  margin-bottom: 20px;
+}
+
+.header-text {
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: 0;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #000000;
+  width: 300px;
+  height: 360px;
+  white-space: normal;
+  margin-bottom: 20px;
+}
+
+.learn-more-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  background: #FFBF00;
+  color: #171717;
+  width: 151px;
+  height: 36px;
+  padding: 6px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 1),
+    -1px -1px 2px rgba(255, 255, 255, 1);
+}
+
+.learn-more-btn:hover {
+  transform: translateY(-2px);
+    box-shadow: 
+    2px 2px 4px #000000, 
+    -2px -2px 4px #FFFFFF;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+</style>
+
