@@ -27,3 +27,5 @@ target/
 # Operating System files
 .DS_Store
 Thumbs.db
+npm-debug.log
+package-lock.json
