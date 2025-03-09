@@ -1,15 +1,17 @@
 <template>
-    <Banner />
+    <BannerSkeleton />
     <DescriptionsBanner />
     <ServicesBanner/>
     <CustomerExperiencesBanner/>
+    <BusinessInfoBanner />
 </template>
 
 <script setup>
-import Banner from '@/components/Banner.vue';
-import CustomerExperiencesBanner from '@/components/CustomerExperiencesBanner.vue';
-import DescriptionsBanner from '@/components/DescriptionsBanner.vue';
-import ServicesBanner from '@/components/ServicesBanner.vue';
+import BannerSkeleton from '@/components/BannerSkeleton.vue';
+import CustomerExperiencesBanner from '@/components/Home/CustomerExperiencesBanner.vue';
+import DescriptionsBanner from '@/components/Home/DescriptionsBanner.vue';
+import ServicesBanner from '@/components/Home/ServicesBanner.vue';
+import BusinessInfoBanner from '@/components/Home/BusinessInfoBanner.vue';
 </script>
 
 <style>

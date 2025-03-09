@@ -29,7 +29,7 @@ const services = computed(() => {
     .services-container {
         display: flex;
         align-items: center;
-        height: 70vh;
+        height: 75vh;
         flex-direction: column;
         padding: 20px;
     }

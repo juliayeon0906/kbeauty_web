@@ -1,35 +1,19 @@
 <template>
-    <div class="banner" >
-        <div class="banner-items">
-            <h2 class="text-[48px]">K-Beauty<br>Hair Salon</h2>
-            <h5 class="text-[36px] font-[300]">Find the beauty you deserve</h5>
-            <router-link to="/reservation">
-                <button class="resBtn px-6 py-4 mt-4">
-                    Book an appointment
-                </button>
-            </router-link>
-        </div>
-    </div>
+    <div>
+        <h2 class="text-[48px]">K-Beauty<br>Hair Salon</h2>
+        <h5 class="text-[36px] font-[300]">Find the beauty you deserve</h5>
+        <router-link to="/reservation">
+            <button class="resBtn px-6 py-4 mt-4">
+                Book an appointment
+            </button>
+        </router-link>
+    </div> 
 </template>
 
 <script setup>
 </script>
 
-<style scoped>
-    .banner {
-        color: #F2F2F2;        ;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        height: 70vh;
-        width: 100vw;
-    }
-    .banner-items {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+<style>
     .resBtn {
         text-transform: uppercase;
         font-size: 15px;
