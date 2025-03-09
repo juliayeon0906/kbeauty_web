@@ -1,16 +1,21 @@
 <template>
-    <div>
-        <h2 class="text-[48px]">K-Beauty<br>Hair Salon</h2>
-        <h5 class="text-[36px] font-[300]">Find the beauty you deserve</h5>
-        <router-link to="/reservation">
-            <button class="resBtn px-6 py-4 mt-4">
-                Book an appointment
-            </button>
-        </router-link>
-    </div> 
+    <BannerSkeleton>
+        <template #banner-content>
+            <div>
+                <h2 class="text-[48px]">K-Beauty<br>Hair Salon</h2>
+                <h5 class="text-[36px] font-[300]">Find the beauty you deserve</h5>
+                <router-link to="/reservation">
+                    <button class="resBtn px-6 py-4 mt-4">
+                        Book an appointment
+                    </button>
+                </router-link>
+            </div> 
+        </template>
+    </BannerSkeleton>
 </template>
 
 <script setup>
+import BannerSkeleton from '@/components/BannerSkeleton.vue';
 </script>
 
 <style>

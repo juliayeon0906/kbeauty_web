@@ -1,8 +1,8 @@
 <template>
-    <BannerSkeleton/>
+    <StylistsBanner/>
     <StylistsInfo/>
 </template>
 <script setup>
-import BannerSkeleton from '@/components/BannerSkeleton.vue';
+import StylistsBanner from '@/components/Stylists/StylistsBanner.vue';
 import StylistsInfo from '@/components/Stylists/StylistsInfo.vue';
 </script>

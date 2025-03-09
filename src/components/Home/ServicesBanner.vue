@@ -12,14 +12,19 @@
 
 <script setup>
 import { computed } from 'vue';
+import img1 from '@/assets/images/services/11.jpg';
+import img2 from '@/assets/images/services/22.jpg';
+import img3 from '@/assets/images/services/33.jpg';
+import img4 from '@/assets/images/services/44.jpg';
+import img5 from '@/assets/images/services/55.jpg';
 
 const services = computed(() => {
     return [
-        {name: 'extensions', img: '/src/assets/images/services/11.jpg'},
-        {name: 'cut', img: '/src/assets/images/services/22.jpg' },
-        {name: 'treatment', img: '/src/assets/images/services/33.jpg' },
-        {name: 'colour', img: '/src/assets/images/services/44.jpg'},
-        {name: 'styling', img: '/src/assets/images/services/55.jpg' },
+        {name: 'extensions', img: img1},
+        {name: 'cut', img: img2},
+        {name: 'treatment', img: img3},
+        {name: 'colour', img: img4},
+        {name: 'styling', img: img5},
     ]
 });
 

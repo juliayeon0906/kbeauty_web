@@ -1,23 +1,10 @@
 <script setup>
-import {computed} from 'vue';
-import { useRoute } from 'vue-router';
-import Banner from './Home/Banner.vue';
-import StylistsBanner from './Stylists/StylistsBanner.vue';
 
-const route = useRoute();
-
-const isHomePage = computed (() => route.name === 'Home');
-const isStylistsPage = computed(() => route.name === 'Stylists');
 </script>
 <template>
     <div class="banner" >
         <div class="banner-items">
-            <div v-if="isHomePage">
-                <Banner/>
-            </div>
-            <div v-else-if="isStylistsPage">
-                <StylistsBanner/>
-            </div>
+            <slot name="banner-content"></slot>
         </div>
     </div>
 </template>

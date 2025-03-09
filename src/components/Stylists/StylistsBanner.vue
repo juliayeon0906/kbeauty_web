@@ -1,5 +1,14 @@
+<script setup lang="ts">
+import BannerSkeleton from '@/components/BannerSkeleton.vue';
+
+</script>
+
 <template>
-    <h2 class="text-[48px]">Our Stylists</h2>
+    <BannerSkeleton>
+        <template #banner-content>
+            <h2 class="text-[48px]">Our Stylists</h2>
+        </template>
+    </BannerSkeleton>
 </template>
 <style>
 .banner::before {
