@@ -5,6 +5,7 @@ import About from "@/views/About.vue";
 import Stylists from "@/views/Stylists.vue";
 import Services from "@/views/Services.vue";
 import Gallery from "@/views/Gallery.vue";
+import Reservation from "@/views/Reservation.vue";
 
 const routes = [
     {
@@ -31,7 +32,12 @@ const routes = [
         path: '/about',
         name: 'About',
         component: About
-    }
+    },
+    {
+        path: '/reservation',
+        name: 'Reservation',
+        component: Reservation
+    },
 ]
 
 const router = createRouter({

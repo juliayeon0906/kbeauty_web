@@ -12,10 +12,10 @@ const reviews = [
 <template>
     <div class="banner-container">
         <div class="exterior-banner">
-            <div class="interior-banner py-8">
-                <div class="content-container flex flex-col px-20">
-                    <div class="header-container p-3">
-                    <h2 class="header-text">Experience At K-Beauty</h2>
+            <div class="interior-banner">
+                <div class="content-container flex flex-col justify-center items-center">
+                    <div class="header-container pt-[55px] mb-[20px]">
+                        <h2 class="header-text">Experience At K-Beauty</h2>
                     </div>
                     <div class="w-full">
                         <Carousel :items="reviews"/>
@@ -28,7 +28,7 @@ const reviews = [
 
 <style scoped>
     .banner-container {
-        height: 50vh;
+        height: 350px;
         display: flex;
     }
     .exterior-banner {
@@ -40,11 +40,11 @@ const reviews = [
     }
     .interior-banner {
         background-color: #2B2B2B;
-        width: 60%;
+        width:  810px;
         height: 100%;
     }
     .header-container{
-        width: 100%;
+        width: 470px;
         display: flex;
     }
     .header-text{

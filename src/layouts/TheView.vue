@@ -13,5 +13,6 @@ import { RouterView } from 'vue-router';
     .view-layout {
         display: grid;
         justify-content: center;
+        width: 100%;
     }
 </style>

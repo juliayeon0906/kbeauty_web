@@ -1,5 +1,5 @@
 <template>
-    <BannerSkeleton>
+    <BannerSkeleton class="banner-skel" :image-url="imageUrl">
         <template #banner-content>
             <div>
                 <h2 class="text-[48px]">K-Beauty<br>Hair Salon</h2>
@@ -16,6 +16,8 @@
 
 <script setup>
 import BannerSkeleton from '@/components/BannerSkeleton.vue';
+
+const imageUrl = new URL('@/assets/images/HERO_BANNER.jpg', import.meta.url).href;
 </script>
 
 <style>
@@ -32,19 +34,5 @@ import BannerSkeleton from '@/components/BannerSkeleton.vue';
     .resBtn:hover {
         background-color: #FF9D00;
         color: #F2F2F2; 
-    }
-    .banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('@/assets/images/HERO_BANNER.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    filter: brightness(30%);
-    z-index: -1;
     }
 </style>

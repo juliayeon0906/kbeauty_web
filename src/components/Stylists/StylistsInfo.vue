@@ -31,8 +31,6 @@
     gap: 6px;
     background-color: #F2F2F2;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    flex-wrap: wrap;
-    flex-direction: column;
 }
 .stylist-info {
     display: flex;
@@ -41,11 +39,11 @@
     font-style: normal;
     justify-content: center;
     gap: 15px;
-    
+    max-height: 100%;
 }
 .stylist-image{
-    max-height: 100%; /* Ensure the image doesn't exceed half of the card's height */
-    object-fit: contain; /* Ensures the entire image fits inside without overflowing */
+    max-height: 100%;
+    object-fit: contain;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
