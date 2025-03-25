@@ -22,7 +22,7 @@ import logo from '@/assets/icons/logo.png';
                 <router-link to="/about">About</router-link>
             </div>
         </nav>
-        <router-link to="/reservation" class="flex justify-center items-center">
+        <router-link to="/reservation" class="flex justify-center items-center h-38">
             <button class="resBtn px-6 py-2">
                 Book an appointment
             </button>
@@ -69,7 +69,7 @@ import logo from '@/assets/icons/logo.png';
     .resBtn {
         text-transform: uppercase;
         font-size: 12px;
-        height: 38px;
+        min-height: 38px;
         background-color: #FFBF00;
         border-radius: 5px;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.7);

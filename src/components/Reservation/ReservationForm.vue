@@ -1,6 +1,6 @@
 <template>
     <div class="reservation-form">
-        <div class="flex items-start">
+        <div class="flex items-start gap-[49.5px]">
             <ReservationDetail/>
             <ReservationFormFormat/>
         </div>
