@@ -4,7 +4,6 @@ import TheView from './layouts/TheView.vue';
 </script>
 
 <template>
-  <BaseNavbar />
-  <TheView />
+    <BaseNavbar />
+    <TheView />
 </template>
-

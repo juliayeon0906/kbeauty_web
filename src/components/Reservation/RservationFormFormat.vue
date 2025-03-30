@@ -1,6 +1,6 @@
 <template>
     <div class="input-container flex flex-col ">
-        <form action="post" class="form-container mb-4">
+        <form action="post" method="POST" name="contact" class="form-container mb-4" @submit.prevent="submitForm">
             <label for="name">Your Name</label>
             <input type="text" name="name" required>
             <label for="phoneNum">Phone Number</label>
@@ -23,10 +23,24 @@
 </template>
 <script setup>
 import DatePicker from 'primevue/datepicker';
+import axios from 'axios';
 import { ref } from 'vue';
  
 
 const dateTime = ref();
+
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://kbeautysalonhfx.netlify.app' : 'https://localhost:5173';
+
+async function submitForm() {
+    try {
+        const response = await axios.post(
+            `${baseUrl}/sendEmail`, postData
+        )
+        return response.datal
+    }catch(error){
+        throw error;
+    }
+}
 
 </script>
 
