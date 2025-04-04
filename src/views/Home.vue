@@ -13,7 +13,3 @@ import ServicesBanner from '@/components/Home/ServicesBanner.vue';
 import BusinessInfoBanner from '@/components/Home/BusinessInfoBanner.vue';
 import Banner from '@/components/Home/Banner.vue';
 </script>
-
-<style>
-    
-</style>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import BannerSkeleton from '@/components/BannerSkeleton.vue';
 const imageUrl = new URL('@/assets/images/OUR_STYLISTS.jpg', import.meta.url).href;
 </script>
@@ -10,5 +10,3 @@ const imageUrl = new URL('@/assets/images/OUR_STYLISTS.jpg', import.meta.url).hr
         </template>
     </BannerSkeleton>
 </template>
-<style>
-</style>

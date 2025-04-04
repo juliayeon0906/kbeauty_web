@@ -1,5 +1,5 @@
 <template>
-    <div class="reservation-form">
+    <div class="reservation-form py-[100px]">
         <ReservationDetail/>
         <ReservationFormFormat/>
     </div>
@@ -13,7 +13,6 @@ import ReservationFormFormat from "@/components/Reservation/RservationFormFormat
 <style>
 .reservation-form {
     display: flex;
-    height: 100vh;
     width: 100%;
     justify-content: center;
     align-items: center;

@@ -15,11 +15,12 @@
 
 <style scoped>
     .description-container {
-        height: 50vh;
+        min-height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
+        padding-top: 20px;
     }
     .text-container {
         display: flex;
@@ -28,11 +29,13 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 50px;
+        width: 100%;
+        flex-wrap: wrap;
     }
     .desc-header{
         font-size: 64px;
         text-shadow: 0.5px 0.5px rgba(0,0,0,0.7);
-        width: 209px;
+        max-width: 209px;
         line-height: 1;
     }
     .highlight {
@@ -47,5 +50,16 @@
         font-variation-settings: "wdth" 100;
         width: 494px;
         line-height: 1.8;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .desc-header {
+            font-size: 48px;
+        }
+        .description {
+            font-size: 16px;
+            padding-right: 10%;
+            padding-left: 10%;
+        }
     }
 </style>

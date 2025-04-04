@@ -1,6 +1,7 @@
 import JoyImage from '@/assets/images/STYLISTS/BBB.jpg';
 import EstherImage from '@/assets/images/STYLISTS/CCC.jpg';
 import LucyImage from '@/assets/images/STYLISTS/AAA.jpg';
+import EllieImage from '@/assets/images/STYLISTS/Ellie.jpg';
 
 export const STYLISTS_INFO = [{
     STYLISTS : [
@@ -28,7 +29,7 @@ export const STYLISTS_INFO = [{
             name: 'Ellie',
             position: 'Master Stylist',
             description: 'Ellie is a highly passionate master stylist. Early in her career, she worked at five different hair salons over the course of seven years to gain as much experience as possible. With all the skills she acquired, Ellie has successfully run her own business for the past 19 years. She specializes in providing personalized hair styling to ensure customer satisfaction.',
-            image: ''
+            image: EllieImage
         },
     ]
 }]

@@ -4,13 +4,13 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { RouterView } from 'vue-router';
 
 </script>
 
-<style scoped>
+<style>
     .view-layout {
-        
+        width: 100%;
     }
 </style>

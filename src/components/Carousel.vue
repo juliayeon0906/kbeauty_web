@@ -10,7 +10,7 @@ const props = defineProps({
     <div class="card">
         <Carousel :value="props.items" :num-visible="1" :num-scroll="1" circular :autoplayInterval="3000" :pt="{indicatorButton: {class: 'indicator-button'}}" >
             <template #item="slotProps">
-                <div class="w-[465px]">
+                <div class="max-w-[465px]">
                     <div class="mb-7">
                         <span class="reviewText">
                             {{ slotProps.data.content }}

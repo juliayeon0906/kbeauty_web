@@ -30,6 +30,7 @@ const reviews = [
     .banner-container {
         height: 350px;
         display: flex;
+        width: 100%;
     }
     .exterior-banner {
         width: 100%;
@@ -40,7 +41,7 @@ const reviews = [
     }
     .interior-banner {
         background-color: #2B2B2B;
-        width:  810px;
+        max-width:  810px;
         height: 100%;
     }
     .header-container{

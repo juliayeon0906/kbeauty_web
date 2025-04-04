@@ -42,9 +42,9 @@ const businessHour = ref([
     </div>
 </template>
 
-<style>
+<style scoped>
 .info-container{
-    height: 60vh;
+    min-height: 60vh;
     width: 100%;
     display: flex;
     gap: 28px;

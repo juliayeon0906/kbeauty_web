@@ -1,6 +1,6 @@
 <template>
     <div class="services-container">
-        <h2 class="p-6 text-[48px] text-[#FFBF00] drop-shadow-[0.5px_0.5px_rgba(0,0,0,0.7)]">Our services</h2>
+        <h2 class="service-header p-6 text-[48px] text-[#FFBF00] drop-shadow-[0.5px_0.5px_rgba(0,0,0,0.7)]">Our services</h2>
         <div class="card-container">
             <div v-for="(service, index) in services" :key="index" class="service-card">
                 <div class="service-bg" :style="{backgroundImage: `url(${service.img})`}"></div>
@@ -34,9 +34,10 @@ const services = computed(() => {
     .services-container {
         display: flex;
         align-items: center;
-        height: 75vh;
+        min-height: 75vh;
         flex-direction: column;
         padding: 20px;
+        width: 100%;
     }
     .card-container {
         display: flex;
@@ -73,5 +74,18 @@ const services = computed(() => {
     }
     .service-card:hover{
         transform: scale(1.05);
+    }
+    @media only screen and (max-width: 1200px) {
+        .card-container {
+            flex-direction: column;
+            gap: 45px;
+        }
+        .service-card {
+            height: 360px;
+            width: 80%;
+        }
+        .service-header {
+            font-size: 48px;
+        }
     }
 </style>

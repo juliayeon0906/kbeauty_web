@@ -16,4 +16,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    open: true, // Automatically open the app in the browser when the server starts
+  },
+  optimizeDeps: {
+    include: ['vue'], // Ensure Vue is included for optimization
+  },
 })

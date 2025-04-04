@@ -1,7 +1,7 @@
 <template>
-    <BannerSkeleton class="banner-skel" :image-url="imageUrl">
+    <BannerSkeleton :image-url="imageUrl">
         <template #banner-content>
-            <div>
+            <div class="w-full">
                 <h2 class="text-[48px]">K-Beauty<br>Hair Salon</h2>
                 <h5 class="text-[36px] font-[300]">Find the beauty you deserve</h5>
                 <router-link to="/reservation">
@@ -20,7 +20,7 @@ import BannerSkeleton from '@/components/BannerSkeleton.vue';
 const imageUrl = new URL('@/assets/images/HERO_BANNER.jpg', import.meta.url).href;
 </script>
 
-<style>
+<style scoped>
     .resBtn {
         text-transform: uppercase;
         font-size: 15px;

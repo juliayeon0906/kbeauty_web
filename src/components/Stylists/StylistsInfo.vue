@@ -2,12 +2,12 @@
     <div class="info-card-container my-10">
         <div v-for="(stylist, index) in STYLISTS_INFO[0].STYLISTS" :key="index" class="stylist-info-card">
             <img :src="stylist.image" alt="Stylist Image" class="stylist-image"/>
-            <div class="stylist-info px-[120px]">
+            <div class="stylist-info px-[5%]">
                 <div class="info-title flex gap-[20px] items-center">
                     <h3 class="stylist-name font-bold text-[32px]">{{ stylist.name }}</h3>
-                    <p class="sytlist-position font-light text-[24px]">{{ stylist.position }}</p>
+                    <p class="stylist-position font-light text-[24px]">{{ stylist.position }}</p>
                 </div>   
-                <p class="font-medium text-[17px]">{{ stylist.description }}</p>
+                <p class="stylist-desc font-medium text-[17px]">{{ stylist.description }}</p>
             </div>
         </div>
     </div>  
@@ -39,12 +39,46 @@
     font-style: normal;
     justify-content: center;
     gap: 15px;
-    max-height: 100%;
+    min-height: fit-content;
 }
 .stylist-image{
     max-height: 100%;
     object-fit: contain;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .stylist-info-card {
+        flex-direction: column;
+        gap: 5%
+    }
+    .stylist-image {
+        height: 60%;
+    }
+    .stylist-name {
+        font-size: 25px;
+    }
+    .stylist-position {
+        font-size: 20px;
+    }
+    .stylist-desc {
+        font-size: 15px
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .stylist-image {
+        height: 60%;
+    }
+    .stylist-name {
+        font-size: 20px;
+    }
+    .stylist-position {
+        font-size: 15px;
+    }
+    .stylist-desc {
+        font-size: 10px
+    }
 }
 </style>
