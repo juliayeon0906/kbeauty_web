@@ -81,4 +81,14 @@
   background-color: #FF9D00;
   color: #F2F2F2; 
 }
+
+@media only screen and (max-width: 1200px) {
+  .text-content {
+    padding: 0 15%;
+  }
+  .about-text {
+    width: 100%;
+  }
+}
+
 </style>

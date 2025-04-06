@@ -2,6 +2,13 @@ import JoyImage from '@/assets/images/STYLISTS/BBB.jpg';
 import EstherImage from '@/assets/images/STYLISTS/CCC.jpg';
 import LucyImage from '@/assets/images/STYLISTS/AAA.jpg';
 import EllieImage from '@/assets/images/STYLISTS/Ellie.jpg';
+import CallIcon from '@/assets/icons/call_Icon.png';
+import GmailIcon from '@/assets/icons/gmail.png';
+import MapIcon from '@/assets/icons/ping_mark.png';
+import InstaIcon from '@/assets/icons/insta_logo.png';
+import ColourMenu from '@/assets/images/menu/COLOUR_TEXT.png';
+import CutMenu from '@/assets/images/menu/CUT_TEXT.png';
+import PermMenu from '@/assets/images/menu/PERM_TEXT.png'
 
 export const STYLISTS_INFO = [{
     STYLISTS : [
@@ -32,4 +39,39 @@ export const STYLISTS_INFO = [{
             image: EllieImage
         },
     ]
-}]
+}];
+
+export const CONTACT_OPTIONS = [
+    {
+        name: 'Phone Number',
+        text: 'TEL: (902) 405-0399',
+        icon: CallIcon,
+    },
+    {
+        name: 'Address',
+        text: '6299 Quinpool Road\nHalifax, NS B3L 1A4',
+        icon: MapIcon,
+    },
+    {
+        name: 'Email',
+        text: 'kbeautysalonhfx@gmail.com',
+        icon: GmailIcon,
+    },
+    {
+        name: 'Instagram',
+        text: 'k_beauty_salon_halifax',
+        icon: InstaIcon,
+    }
+];
+
+export const MENU_OPTIONS = [
+    {
+        image: CutMenu,
+    },
+    {
+        image: PermMenu,
+    },
+    {
+        image: ColourMenu,
+    }
+]

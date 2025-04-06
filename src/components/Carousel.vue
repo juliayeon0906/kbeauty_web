@@ -58,4 +58,9 @@ const props = defineProps({
     background-color: #FFBF00 !important;
 }
 
+@media screen and (max-width: 700px) {
+    .p-carousel .p-carousel-indicator-button, .p-carousel-next-button, .p-carousel-prev-button {
+        visibility: hidden;
+    }
+}
 </style>

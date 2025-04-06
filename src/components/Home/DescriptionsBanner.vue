@@ -15,7 +15,7 @@
 
 <style scoped>
     .description-container {
-        min-height: 50vh;
+        min-height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;

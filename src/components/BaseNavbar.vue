@@ -12,7 +12,7 @@ const isMobile = computed(() => windowWidth.value <= 1200)
 const navClass = computed(() => {
     return isMenuOpened.value && isMobile.value
     ? 'flex justify-center flex-col items-center gap-4' 
-    : 'flex justify-between';
+    : 'flex justify-between items-center min-w-[70vw]';
 });
 
 const categoreisStyle = computed(() => {
@@ -105,14 +105,16 @@ onUnmounted(() => {
         min-height: 100%;
         align-items: center;
         justify-content: center;
+        width: 30vw;
     }
     .categories {
         display: flex;
         gap: 45px;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
         padding: 1rem;
         flex-wrap: wrap;
+        width: 100vw;
     }
     .nav {
         display: block;
@@ -125,9 +127,10 @@ onUnmounted(() => {
         text-decoration-color: #3F3F3F;
     }
     .res-btn {
+        width: 100vw;
         text-transform: uppercase;
         font-size: 12px;
-        min-height: 25px;
+        min-height: 38px;
         max-width: fit-content;
         background-color: #FFBF00;
         border-radius: 5px;
