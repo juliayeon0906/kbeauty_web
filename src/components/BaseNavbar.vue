@@ -2,10 +2,14 @@
 import { RouterLink } from 'vue-router';
 import logo from '@/assets/icons/logo.png';
 import hamburgerIcon from '@/assets/icons/HAMBURGER.png';
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import closeIcon from '@/assets/icons/close_button_highres.png';
+import { computed, onBeforeUnmount, onMounted, onUnmounted, ref, watch } from 'vue';
+import { useClickOutside } from '@/composables/useClickOutside';
 
 const windowWidth = ref(window.innerWidth);
 const isMenuOpened = ref(false);
+const navRef = ref(null);
+const menuBtnRef = ref(null);
 
 const isMobile = computed(() => windowWidth.value <= 1200)
 
@@ -22,25 +26,31 @@ const categoreisStyle = computed(() => {
 });
 
 const updateWidth = () => {
-  windowWidth.value = window.innerWidth;
+    windowWidth.value = window.innerWidth;
 };
 
 function toggleMenu(){
     isMenuOpened.value = !isMenuOpened.value;
 };
 
+useClickOutside(navRef, () => {
+    if(isMenuOpened.value === true) {
+        isMenuOpened.value = false;
+    }
+});
+
 onMounted(() => {
-  window.addEventListener('resize', updateWidth);
+    window.addEventListener('resize', updateWidth);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateWidth);
+    window.removeEventListener('resize', updateWidth);
 });
 </script>
 
 <template>
-    <div class="nav-container fixed top-0 left-0 h-[90px] w-full z-50" >
-        <div :class="isMenuOpened && isMobile ? 'open-navbar' : 'navbar'" >
+    <div class="nav-container fixed top-0 left-0 h-[90px] w-full z-50" ref="navRef" >
+        <div :class="isMenuOpened && isMobile ? 'open-navbar' : 'navbar'">
             <router-link to="/" class="logo-container">
                 <img class="h-[28px] max-w-sm" :src="logo" alt="logo">
             </router-link>
@@ -64,12 +74,12 @@ onUnmounted(() => {
                         Book an appointment
                     </button>
                 </router-link>
-                <div v-if="isMobile && isMenuOpened" @click="toggleMenu">
-                    <img :src="hamburgerIcon" alt="" class="h-[25px] mt-4">
+                <div v-if="isMobile && isMenuOpened" @click="toggleMenu" ref="menuBtnRef">
+                    <img :src="closeIcon" alt="" class="h-[25px] mt-6">
                 </div>
             </div>
             <div v-else>
-                <div @click="toggleMenu">
+                <div @click="toggleMenu" ref="menuBtnRef">
                     <img :src="hamburgerIcon" alt="hamburger icon" class="h-[25px]">
                 </div>
             </div>
@@ -91,8 +101,8 @@ onUnmounted(() => {
     }
     .open-navbar{
         width: 100%;
-        padding-top: 5%;
-        padding-bottom: 5%;
+        padding-top: 3%;
+        padding-bottom: 4%;
         display: flex;
         background-color: #F2F2F2;
         justify-content: center;

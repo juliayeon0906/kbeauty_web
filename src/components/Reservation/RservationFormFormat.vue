@@ -40,9 +40,6 @@ import DatePicker from 'primevue/datepicker';
 import axios from 'axios';
 import { ref } from 'vue';
  
-
-const dateTime = ref();
-
 const formData = ref({
     name: '',
     phoneNum: '',
@@ -69,14 +66,14 @@ async function submitForm() {
     console.log('submit', Object.entries(formData.value))
 
     for(const [key, value] of Object.entries(formData.value)){
-        postData.append('key','value');
+        postData.append(key,value);
     }
-    console.log(postData);
+
     try {
-        const response = await axios.post(
-            `/api/sendEmail`, postData
-        );
-    }catch(error){
+        const response = await axios.post(`/api/sendEmail`, postData);
+        console.log('success:', response.data);
+    } catch (error) {
+        console.error('error submitting:', error);
         throw error;
     }
 };

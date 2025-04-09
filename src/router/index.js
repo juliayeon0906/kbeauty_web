@@ -1,5 +1,5 @@
 import { createRouter } from "vue-router";
-import { createWebHashHistory } from "vue-router";
+import { createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Stylists from "@/views/Stylists.vue";
@@ -41,7 +41,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHashHistory('/'),
+    history: createWebHistory('/'),
     routes
 })
 

@@ -23,7 +23,7 @@ const props = defineProps({
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 560px;
+    height: 620px;
     width: 100%;
     overflow: hidden;
 }

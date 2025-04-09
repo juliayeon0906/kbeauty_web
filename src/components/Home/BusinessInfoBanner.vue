@@ -18,7 +18,7 @@ const businessHour = ref([
 <template>
     <div class="info-container px-10 py-8">
         <div class="business-hour-container">
-           <div class="hour-text-container flex flex-col gap-6 items-center">
+           <div class="hour-text-container flex flex-col gap-[40px] items-center">
                 <h2 class="text-white text-[32px]">Business Hour</h2>
                 <div class="flex gap-7">
                     <ul class="hour-info">
@@ -40,7 +40,8 @@ const businessHour = ref([
 
 <style scoped>
 .info-container{
-    min-height: 60vh;
+    height: 700px;
+    align-items: center;
     width: 100%;
     display: flex;
     gap: 28px;
@@ -49,6 +50,7 @@ const businessHour = ref([
 }
 .business-hour-container{
     width: 35%;
+    height: 100%;
     border-radius: 4.5px;
     background: #2B2B2B;
     display: flex;
@@ -74,7 +76,8 @@ const businessHour = ref([
         flex-direction: column;
         align-items: center;
         padding: 4%;
-        gap: 10%;
+        height: auto;
+        overflow: visible;
     }
     .business-hour-container {
         width: 100%;

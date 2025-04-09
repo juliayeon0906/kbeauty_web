@@ -27,9 +27,3 @@ body {
         text-transform: uppercase;
     }
 }
-
-@media only screen and (max-width: 1200px) {
-    body {
-        padding-top: 457px;
-    }
-}

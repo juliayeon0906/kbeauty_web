@@ -34,10 +34,12 @@ const services = computed(() => {
     .services-container {
         display: flex;
         align-items: center;
-        min-height: 75vh;
+        justify-content: center;
+        min-height: 60vh;
         flex-direction: column;
         padding: 20px;
         width: 100%;
+        margin-bottom: 40px;
     }
     .card-container {
         display: flex;

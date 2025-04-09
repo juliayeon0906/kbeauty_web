@@ -28,9 +28,10 @@ const reviews = [
 
 <style scoped>
     .banner-container {
-        min-height: 350px;
+        min-height: 500px;
         display: flex;
         width: 100%;
+        margin-bottom: 40px;
     }
     .exterior-banner {
         width: 100%;
@@ -43,6 +44,9 @@ const reviews = [
         background-color: #2B2B2B;
         max-width:  810px;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .header-container{
         width: 470px;

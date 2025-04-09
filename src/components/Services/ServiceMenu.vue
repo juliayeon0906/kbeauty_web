@@ -19,7 +19,7 @@ import { MENU_OPTIONS } from '@/constants';
     padding-right: 5%;
     padding-left: 5%;
     position: relative;
-    top: 45vh;
+    top: 450px;
 }
 .menu-item {
     background-color: #2B2B2B;
@@ -29,6 +29,11 @@ import { MENU_OPTIONS } from '@/constants';
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform ease 0.5s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
 }
 
 @media only screen and (max-width: 1200px) {

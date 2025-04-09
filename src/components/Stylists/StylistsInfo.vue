@@ -48,7 +48,7 @@
     border-top-right-radius: 10px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1700px) {
     .stylist-info-card {
         flex-direction: column;
         gap: 5%
