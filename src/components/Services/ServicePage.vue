@@ -13,7 +13,7 @@ import ServiceMenu from './ServiceMenu.vue';
 <style>
 .service-page-container {
     min-height: 100vh;
-    /* margin-bottom: 30vh; */
+    margin-bottom: 30vh;
 }
 
 @media only screen and (max-width: 1200px) {
