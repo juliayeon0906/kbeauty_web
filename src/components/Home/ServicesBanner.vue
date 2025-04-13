@@ -20,7 +20,7 @@ import img5 from '@/assets/images/services/55.jpg';
 
 const services = computed(() => {
     return [
-        {name: 'extensions', img: img1},
+        {name: 'perm', img: img1},
         {name: 'cut', img: img2},
         {name: 'treatment', img: img3},
         {name: 'colour', img: img4},

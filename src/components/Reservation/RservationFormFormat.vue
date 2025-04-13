@@ -1,33 +1,51 @@
 <template>
     <div class="input-container flex flex-col ">
-        <form action="post" method="POST" name="contact" class="form-container mb-4" @submit.prevent="submitForm">
-            <label for="name">Your Name</label>
-            <input type="text" name="name" v-model="formData.name" required>
+        <form ref="form" action="post" method="POST" name="contact" class="form-container mb-4" @submit.prevent="sendForm">
+            <label for="name">Your Full Name</label>
+            <input type="text" name="name" required>
             <label for="phoneNum">Phone Number</label>
-            <input type="text" name="phoneNum" v-model="formData.phoneNum" required>
+            <input type="number" name="phoneNum" required>
             <label for="email">Email Address</label>
-            <input type="text" name="email" v-model="formData.email" required>
+            <input type="email" name="email" required>
             <label for="date">Preferred Date and Time</label>
-            <DatePicker id="date" v-model="formData.dateTime" showTime hourFormat="12" showIcon fluid showButtonBar />
-            <label for="file" class="text-gray-700">Preferred Hair Picture:</label>
-            <button type="button" class="bg-[#2B2B2B] text-white py-2 px-4 h-[40px] w-[119px] rounded-[10px] cursor-pointer" @click="triggerFileInput">Choose</button>
-            <input type="file" id="file" accept="image/*" class="hidden" @change="handleFileChange" />
+            <DatePicker showTime hourFormat="12" showIcon fluid showButtonBar v-model="selectedDate" />
+            <input type="hidden" name="date" :value="formattedDate" />
             <div class="flex flex-row gap-3">
                 <div class="flex flex-col">
                     <label for="gender">Gender</label>
-                    <input type="text" name="gender" v-model="formData.gender" required>
+                    <input type="text" name="gender" required>
                 </div>
                 <div class="flex flex-col">
                     <label for="treated">Is Your Hair Colour Treated?</label>
-                    <input type="text" name="treated" v-model="formData.treated" placeholder="Yes / No" required>
+                    <select name="treated" required class="h-[35px] rounded-[10px] bg-[#D9D9D9] px-2">
+                        <option value="" disabled selected>Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
                 </div>
             </div>
             <label for="hairType">Your Hair Type</label>
-            <input type="text" name="hairType" v-model="formData.hairType" placeholder="Straight / Wavy / Curly / Coiled" required>
+            <select name="hairType" required class="h-[35px] rounded-[10px] bg-[#D9D9D9] px-2">
+                <option value="" disabled selected>Select</option>
+                <option value="straight">Straight</option>
+                <option value="wavy">Wavy</option>
+                <option value="curly">Curly</option>
+                <option value="coily">Coily</option>
+            </select>
             <label for="service">Service Required</label>
-            <input type="text" name="service" v-model="formData.service" placeholder="Haircut / Colour / Highlight / Perm / etc." required>
+            <select name="service" v-model="formData.service" required class="h-[35px] rounded-[10px] bg-[#D9D9D9] px-2">
+                <option value="" disabled selected>Select</option>
+                <option value="haircut">Haircut</option>
+                <option value="colour">Colour (x Highlight)</option>
+                <option value="highlight colour">Colour (w/ Highlight)</option>
+                <option value="perm">Perm</option>
+                <option value="heating perm">Heating Perm (Korean Style)</option>
+                <option value="treatment">Treatment</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" v-if="formData.service === 'other'" name="customService" placeholder="Please specify" :required="formData.service==='other'">
             <label for="comment">Other Comment</label>
-            <textarea rows="3" class="comment-area" v-model="formData.comment"></textarea>
+            <textarea rows="3" class="comment-area" name="comment"></textarea>
             <input type="submit" name="submit" value="Submit" class="submitBtn">
         </form>
         <span class="text-[10px]">
@@ -36,48 +54,53 @@
     </div>
 </template>
 <script setup>
+
 import DatePicker from 'primevue/datepicker';
-import axios from 'axios';
-import { ref } from 'vue';
- 
+import emailjs from '@emailjs/browser';
+import { ref, computed } from 'vue';
+
+const form = ref(null);
+const selectedDate = ref(null);
 const formData = ref({
-    name: '',
-    phoneNum: '',
-    email: '',
-    dateTime: '',
-    file: null,
-    gender: '',
-    treated: '',
-    hairType: '',
     service: '',
-    comment: '',
 });
 
-function triggerFileInput() {
-    document.getElementById('file').click();
-}
+const formattedDate = computed(() => {
+    const option = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+    }
+    if (!selectedDate.value) return '';
+    return selectedDate.value.toLocaleString('en-US', option);
+});
 
-function handleFileChange(event) {
-    formData.file = event.target.files[0];
-}
-
-async function submitForm() {
-    let postData = new FormData();
-    console.log('submit', Object.entries(formData.value))
-
-    for(const [key, value] of Object.entries(formData.value)){
-        postData.append(key,value);
+const sendForm = () => {
+    if (!form.value) {
+        console.error("Form not found");
+        return;
     }
 
-    try {
-        const response = await axios.post(`/api/sendEmail`, postData);
-        console.log('success:', response.data);
-    } catch (error) {
-        console.error('error submitting:', error);
-        throw error;
-    }
-};
+    emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, form.value, {
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    }).then(
+        () => {
+            console.log('SUCCESS!');
 
+            form.value.reset();
+            formData.service = '';
+            selectedDate.value = null;
+            window.alert('✅ Your reservation request has been sent successfully!');
+        },
+        (error) => {
+            console.log('FAILED', error);
+            window.alert('❌ Failed to send. Please try again later.');
+        }
+    )
+}
 </script>
 
 <style>

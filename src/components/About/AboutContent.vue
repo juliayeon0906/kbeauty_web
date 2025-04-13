@@ -23,9 +23,11 @@
         enhancements, K-Beauty delivers the
         perfect blend of style and sophistication.
     </p>
-    <button class="learn-more-btn">
-      Learn More
-    </button>
+    <router-link to="/">
+      <button class="learn-more-btn">
+        Learn More
+      </button>
+    </router-link>
   </div>
 </template>
 
@@ -45,12 +47,11 @@
 
 .about-text {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   color: #000000;
   width: 300px;
-  height: 360px;
   white-space: normal;
   margin-bottom: 20px;
 }

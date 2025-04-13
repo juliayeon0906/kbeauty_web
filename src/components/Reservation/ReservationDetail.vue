@@ -5,7 +5,7 @@
         </div>
         <div class="flex flex-col h-[240px] justify-between">
             <p>Have a question for one of our stylists? Need more info? Give us a call or drop us a line below, we will get back to you asap.</p>
-            <p>We require 48 hours notice to reschedule or cancel appointments. Please send us an email to kbeautysalonhfx@gmail.com for all inquiries.</p>
+            <p>We require 48 hours notice to reschedule or cancel appointments. For all inquiries, please email us at kbeautysalonhfx@gmail.com or give us a call at (902) 405-0399.</p>
         </div>
         
     </div>
