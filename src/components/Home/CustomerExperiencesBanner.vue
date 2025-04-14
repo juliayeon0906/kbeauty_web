@@ -13,7 +13,7 @@ const reviews = [
     <div class="banner-container">
         <div class="exterior-banner">
             <div class="interior-banner">
-                <div class="content-container flex flex-col justify-center items-center">
+                <div class="content-container flex flex-col justify-center items-center w-full">
                     <div class="header-container pt-[55px] mb-[20px]">
                         <h2 class="header-text">Experience At K-Beauty</h2>
                     </div>
@@ -63,8 +63,7 @@ const reviews = [
         }
         .header-container {
             width: 100%;
-            padding-right: 2%;
-            padding-left: 2%;
+            padding: 0 40px;
         }
     }
 </style>

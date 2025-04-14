@@ -5,13 +5,16 @@ import hamburgerIcon from '@/assets/icons/HAMBURGER.png';
 import closeIcon from '@/assets/icons/close_button_highres.png';
 import { computed, onBeforeUnmount, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useClickOutside } from '@/composables/useClickOutside';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 const windowWidth = ref(window.innerWidth);
 const isMenuOpened = ref(false);
 const navRef = ref(null);
 const menuBtnRef = ref(null);
 
-const isMobile = computed(() => windowWidth.value <= 1200)
+const isMobile = computed(() => windowWidth.value <= 1250)
 
 const navClass = computed(() => {
     return isMenuOpened.value && isMobile.value
@@ -46,6 +49,15 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener('resize', updateWidth);
 });
+
+watch(
+    () => route.fullPath, 
+    () => {
+        if (isMobile.value) {
+            isMenuOpened.value = false;
+        }
+    }
+);
 </script>
 
 <template>
@@ -151,14 +163,4 @@ onUnmounted(() => {
         background-color: #FF9D00;
         color: #F2F2F2; 
     }
-
-    /* @media only screen and (max-width: 1200px) {
-        .categories {
-            flex-direction: column;
-            gap: 45px;
-        }
-        .navbar {
-            flex-direction: column;
-        }
-    } */
 </style>

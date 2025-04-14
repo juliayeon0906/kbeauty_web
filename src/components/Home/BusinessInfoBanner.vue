@@ -83,5 +83,8 @@ const businessHour = ref([
         width: 100%;
         height: 440px;
     }
+    .hour-info {
+        font-size: 14px;
+    }
 }
 </style>

@@ -64,11 +64,10 @@ import { CONTACT_OPTIONS } from '@/constants';
     .contact-us-container {
         width: 100%;
         overflow: visible;
+        height: 100vh;
     }
     .contact-option-container {
         grid-template-columns: 1fr;
-    }
-    .option-item {
     }
     .contact-icon {
         height: 40px;

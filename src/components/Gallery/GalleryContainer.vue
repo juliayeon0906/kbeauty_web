@@ -16,9 +16,9 @@ import { ref } from 'vue';
 const images = ref([]);
 
 onMounted(() => {
-    const context = import.meta.glob('@/assets/images/GALLERY/*.jpg');
-    images.value = Object.values(context).map((image) => image.name);
-}) 
+    const imageModules = import.meta.glob('@/assets/images/GALLERY/*.jpg', { eager: true });
+    images.value = Object.values(imageModules).map((mod) => mod.default);
+});
 </script>
 
 <style scoped>

@@ -20,6 +20,7 @@ import { MENU_OPTIONS } from '@/constants';
     padding-left: 5%;
     position: relative;
     top: 450px;
+    padding-bottom: 20px;
 }
 .menu-item {
     background-color: #2B2B2B;
@@ -28,7 +29,7 @@ import { MENU_OPTIONS } from '@/constants';
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     transition: transform ease 0.5s;
 }
 

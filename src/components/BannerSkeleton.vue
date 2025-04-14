@@ -43,4 +43,10 @@ const props = defineProps({
     gap: 10px;
     z-index: 1;
 }
+
+@media only screen and (max-width: 700px) {
+    .banner {
+        padding: 0 40px;
+    }
+}
 </style>

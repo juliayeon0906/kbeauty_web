@@ -21,18 +21,18 @@ const imageUrl = new URL('@/assets/images/HERO_BANNER.jpg', import.meta.url).hre
 </script>
 
 <style scoped>
-    .resBtn {
-        text-transform: uppercase;
-        font-size: 15px;
-        height: 54px;
-        background-color: #FFBF00;
-        border-radius: 5px;
-        color: #2B2B2B;
-        box-shadow: 2px 2px 2px rgba(0,0,0,0.7);
-        transition: all 0.3s ease;
-    }
-    .resBtn:hover {
-        background-color: #FF9D00;
-        color: #F2F2F2; 
-    }
+.resBtn {
+    text-transform: uppercase;
+    font-size: 15px;
+    height: 54px;
+    background-color: #FFBF00;
+    border-radius: 5px;
+    color: #2B2B2B;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.7);
+    transition: all 0.3s ease;
+}
+.resBtn:hover {
+    background-color: #FF9D00;
+    color: #F2F2F2; 
+}
 </style>
