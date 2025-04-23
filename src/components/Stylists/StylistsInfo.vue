@@ -48,13 +48,17 @@
     border-top-right-radius: 10px;
 }
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 1250px) {
     .stylist-info-card {
         flex-direction: column;
-        gap: 5%
+        gap: 5%;
+        min-height: 70vh;
+        height: auto;
+        padding: 10px;
     }
     .stylist-image {
-        height: 60%;
+        height: 50vh;
+        margin-bottom: 10px;
     }
     .stylist-name {
         font-size: 25px;
@@ -63,14 +67,11 @@
         font-size: 20px;
     }
     .stylist-desc {
-        font-size: 15px
+        font-size: 18px
     }
 }
 
-@media only screen and (max-width: 767px) {
-    .stylist-image {
-        height: 60%;
-    }
+@media only screen and (max-width: 768px) {
     .stylist-name {
         font-size: 20px;
     }
@@ -78,7 +79,7 @@
         font-size: 15px;
     }
     .stylist-desc {
-        font-size: 10px
+        font-size: 14px
     }
 }
 </style>

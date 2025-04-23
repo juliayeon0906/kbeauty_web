@@ -163,4 +163,10 @@ watch(
         background-color: #FF9D00;
         color: #F2F2F2; 
     }
+
+    @media only screen and (max-width: 786px) {
+        a {
+            font-size: 14px;
+        }
+    }
 </style>

@@ -8,7 +8,8 @@
             <label for="email">Email Address</label>
             <input type="email" name="email" required>
             <label for="date">Preferred Date and Time</label>
-            <DatePicker showTime hourFormat="12" showIcon fluid showButtonBar v-model="selectedDate" />
+            <!-- <DatePicker showTime hourFormat="12" showIcon fluid showButtonBar v-model="selectedDate" /> -->
+            <VueDatePicker v-model="selectedDate" :month-change-on-scroll="false" :clearable="false" required :is-24="false"></VueDatePicker>
             <input type="hidden" name="date" :value="formattedDate" />
             <div class="flex flex-row gap-3">
                 <div class="flex flex-col">
@@ -37,13 +38,13 @@
                 <option value="" disabled selected>Select</option>
                 <option value="haircut">Haircut</option>
                 <option value="colour">Colour (x Highlight)</option>
-                <option value="highlight colour">Colour (w/ Highlight)</option>
+                <option value="highlightColour">Colour (w/ Highlight)</option>
                 <option value="perm">Perm</option>
-                <option value="heating perm">Heating Perm (Korean Style)</option>
+                <option value="heatingPerm">Heating Perm (Korean Style)</option>
                 <option value="treatment">Treatment</option>
                 <option value="other">Other</option>
             </select>
-            <input type="text" v-if="formData.service === 'other'" name="customService" placeholder="Please specify" :required="formData.service==='other'">
+            <textarea v-model="message" type="text" rows="5" class="comment-area" v-if="isCustomService" name="customService" :placeholder="otherServicePlaceholder" :required="isCustomService"></textarea>
             <label for="comment">Other Comment</label>
             <textarea rows="3" class="comment-area" name="comment"></textarea>
             <input type="submit" name="submit" value="Submit" class="submitBtn">
@@ -54,13 +55,14 @@
     </div>
 </template>
 <script setup>
-
-import DatePicker from 'primevue/datepicker';
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 import emailjs from '@emailjs/browser';
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 const form = ref(null);
-const selectedDate = ref(null);
+const message = ref('');
+const selectedDate = ref(new Date());
 const formData = ref({
     service: '',
 });
@@ -78,6 +80,19 @@ const formattedDate = computed(() => {
     return selectedDate.value.toLocaleString('en-US', option);
 });
 
+const isCustomService = computed(() => {
+    const service = formData.value.service;
+    return service === 'other' || service === 'colour' || service === 'highlightColour';
+});
+
+const otherServicePlaceholder = computed(() => {
+    const service = formData.value.service;
+    if (isCustomService && service === 'other'){
+        return 'Please Specify'
+    }
+    return null;
+});
+
 const sendForm = () => {
     if (!form.value) {
         console.error("Form not found");
@@ -91,7 +106,7 @@ const sendForm = () => {
             console.log('SUCCESS!');
 
             form.value.reset();
-            formData.service = '';
+            formData.value.service = '';
             selectedDate.value = null;
             window.alert('✅ Your reservation request has been sent successfully!');
         },
@@ -100,7 +115,15 @@ const sendForm = () => {
             window.alert('❌ Failed to send. Please try again later.');
         }
     )
-}
+};
+
+watch(() => formData.value.service, (newVal) => {
+    if (newVal === 'colour' || newVal === 'highlightColour') {
+        message.value = 'Wish Colour: \n\nColour History: \n';
+    } else {
+        message.value = '';
+    }
+});
 </script>
 
 <style>
@@ -135,15 +158,17 @@ input {
     justify-content: center;
 }
 
-.p-datepicker {
-    border-radius: 10px;
+/* Date Picker Style */
+:root {
+    --dp-border-radius: 10px;
 }
-.p-datepicker-panel {
-    background-color: white !important;
+.dp__theme_light {
+    --dp-background-color: #D9D9D9;
 }
-.p-inputtext {
-    background-color: #D9D9D9 !important;
+.dp__outer_menu_wrap{
+    background-color: #fff !important;
 }
+
 .submitBtn {
     background-color: #FFBF00;
     width: 121.9px;
@@ -151,9 +176,34 @@ input {
     text-transform: uppercase;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.7);
     transition: all 0.3s ease;
+    padding: 5px 0;
+    margin-top: 10px;
 }
 .submitBtn:hover {
     background-color: #FF9D00;
     color: #F2F2F2; 
+}
+
+@media only screen and (max-width: 786px) {
+    .input-container {
+        padding: 0 10px;
+    }
+    input {
+        height: 30px;
+        font-size: 12px;
+    }
+    select, label, textarea {
+        font-size: 12px;
+    }
+    .submitBtn {
+        width: 100px;
+        font-size: 12px;
+    }
+    textarea {
+        resize: vertical;
+    }
+    :root {
+        --dp-font-size: 12px;
+    }
 }
 </style>

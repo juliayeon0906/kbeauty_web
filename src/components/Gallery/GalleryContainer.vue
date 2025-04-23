@@ -3,7 +3,7 @@
         <h2 class="gal-header">Gallery</h2>
         <div class="gallery-container">
             <div class="gallery-card-container" v-for="(image, index) in images" :key="index">
-                <img :src="image" alt="Image" class="gallery-card">
+                <img :src="image" alt="Image" class="gallery-card" loading="lazy">
             </div>
         </div> 
     </div>  
