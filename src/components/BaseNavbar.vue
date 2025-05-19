@@ -158,6 +158,7 @@ watch(
         border-radius: 5px;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.7);
         transition: all 0.3s ease;
+        white-space: nowrap;
     }
     .res-btn:hover {
         background-color: #FF9D00;

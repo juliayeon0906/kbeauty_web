@@ -1,7 +1,7 @@
 <template>
   <div class="image-content">
     <img 
-      src="@/assets/images/GALLERY/20200702_162018.jpg" 
+      src="@/assets/images/about/about.jpg" 
       alt="About Image"
       class="about-image"
     />

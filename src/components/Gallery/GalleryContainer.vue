@@ -17,7 +17,13 @@ const images = ref([]);
 
 onMounted(() => {
     const imageModules = import.meta.glob('@/assets/images/GALLERY/*.jpg', { eager: true });
-    images.value = Object.values(imageModules).map((mod) => mod.default);
+    images.value = Object.entries(imageModules)
+        .map(([path, mod]) => ({
+            name: path.split('/').pop(), // Extract the file name
+            url: mod.default,
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name, undefined, {numeric: true})) // Sort alphabetically by name
+        .map((image) => image.url);
 });
 </script>
 
@@ -39,7 +45,6 @@ onMounted(() => {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 400px);
-    grid-template-rows: repeat(7, 450px);
     justify-content: center;
     gap: 20px;
 }
@@ -62,7 +67,6 @@ onMounted(() => {
 @media only screen and (max-width: 1250px){
     .gallery-container {
         grid-template-columns: repeat(3, 30%);
-        grid-template-rows: repeat(7, 10%);
     }
 }
 
@@ -72,7 +76,6 @@ onMounted(() => {
     }
     .gallery-container {
         grid-template-columns: repeat(2, 45%);
-        grid-template-rows: repeat(12, 10%);
     }
     .gallery{
         margin-bottom: 20vh;
