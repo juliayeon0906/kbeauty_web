@@ -13,7 +13,8 @@ import ServiceMenu from './ServiceMenu.vue';
 <style>
 .service-page-container {
     min-height: 100vh;
-    position: relative;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 </style>

@@ -12,11 +12,11 @@
 
 <script setup>
 import { computed } from 'vue';
-import img1 from '@/assets/images/services/11.jpg';
-import img2 from '@/assets/images/services/22.jpg';
-import img3 from '@/assets/images/services/33.jpg';
-import img4 from '@/assets/images/services/44.jpg';
-import img5 from '@/assets/images/services/55.jpg';
+import img1 from '@/assets/images/services/Perm.jpg';
+import img2 from '@/assets/images/services/Cut.jpg';
+import img3 from '@/assets/images/services/Treatment.jpg';
+import img4 from '@/assets/images/services/Colour.jpg';
+import img5 from '@/assets/images/services/Styling.jpg';
 
 const services = computed(() => {
     return [

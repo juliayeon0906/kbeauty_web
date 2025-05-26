@@ -19,7 +19,7 @@ import { MENU_OPTIONS } from '@/constants';
     padding-right: 5%;
     padding-left: 5%;
     position: relative;
-    top: 450px;
+    margin-top: 60vh;
     padding-bottom: 20px;
 }
 .menu-item {
@@ -47,6 +47,24 @@ import { MENU_OPTIONS } from '@/constants';
     }
     img {
         width: 60%;
+    }
+}
+
+@media only screen and (min-height: 1000px){
+    .menu-container{
+        margin-top: 40vh;
+    }
+}
+
+@media only screen and (max-height: 850px) {
+    .menu-container{
+        margin-top: 70vh;
+    }
+}
+
+@media only screen and (max-height: 650px) {
+    .menu-container {
+        margin-top: 110vh;
     }
 }
 </style>
