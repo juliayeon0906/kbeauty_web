@@ -1,7 +1,7 @@
 <template>
     <div class="description-container">
         <div class="text-container">
-            <h2 class="desc-header">Our <span class="highlight">Value</span></h2>
+            <h2 class="desc-header">Our <span class="highlight">Values</span></h2>
             <h5 class="description">At K-Beauty, customer satisfaction and exceptional service are our top priorities. Our dedicated team 
             in Halifax is here to provide you with a welcoming and personalized experience.</h5>
         </div>

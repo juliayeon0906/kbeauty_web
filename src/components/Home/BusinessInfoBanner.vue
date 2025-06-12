@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import ContactUsContainer from './ContactUsContainer.vue';
+import businessHourBg from '@/assets/images/Business_Hour.jpg';
 
 const businessHour = ref([
-        {day: 'Monday', hour: '10AM - 7PM'},
-        {day: 'Tuesday', hour: '10AM - 7PM'},
-        {day: 'Wednesday', hour: '10AM - 7PM'},
-        {day: 'Thursday', hour: '10AM - 7PM'},
-        {day: 'Friday', hour: '10AM - 7PM'},
+        {day: 'Monday', hour: '10AM - 8PM'},
+        {day: 'Tuesday', hour: '10AM - 8PM'},
+        {day: 'Wednesday', hour: '10AM - 8PM'},
+        {day: 'Thursday', hour: '10AM - 8PM'},
+        {day: 'Friday', hour: '10AM - 8PM'},
         {day: 'Saturday', hour: '10AM - 7PM'},
         {day: 'Sunday', hour: '10AM - 6PM'}
     ]
@@ -17,7 +18,7 @@ const businessHour = ref([
 
 <template>
     <div class="info-container px-10 py-8">
-        <div class="business-hour-container">
+        <div class="business-hour-container relative overflow-hidden" :style="{ backgroundImage: `url(${businessHourBg})` }">
            <div class="hour-text-container flex flex-col gap-[40px] items-center">
                 <h2 class="text-white text-[32px]">Business Hour</h2>
                 <div class="flex gap-7">
@@ -56,6 +57,10 @@ const businessHour = ref([
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
 }
 .hour-info {
     display: flex;
