@@ -1,5 +1,5 @@
 <template>
-    <div class="info-card-container my-10">
+    <div class="info-card-container my-10" :style="{ backgroundImage: `url(${stylistBg})` }">
         <div v-for="(stylist, index) in STYLISTS_INFO[0].STYLISTS" :key="index" class="stylist-info-card">
             <img :src="stylist.image" alt="Stylist Image" class="stylist-image"/>
             <div class="stylist-info px-[5%]">
@@ -14,6 +14,7 @@
 </template>
 <script setup>
   import { STYLISTS_INFO } from '@/constants.js';
+  import stylistBg from '@/assets/images/STYLISTS/Stylist_background_image.jpg';
 </script>
 <style scoped>
 .info-card-container{
@@ -22,6 +23,9 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .stylist-info-card{
     height: 70vh;
