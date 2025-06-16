@@ -1,7 +1,10 @@
 <template>
     <div class="description-container">
         <div class="text-container">
-            <h2 class="desc-header">Our <span class="highlight">Values</span></h2>
+            <h2 class="desc-header">
+            <span class="highlight">Our</span><br />
+            <span class="highlight">Values</span>
+            </h2>
             <h5 class="description">At K-Beauty, customer satisfaction and exceptional service are our top priorities. Our dedicated team 
             in Halifax is here to provide you with a welcoming and personalized experience.</h5>
         </div>
@@ -35,7 +38,7 @@
     .desc-header{
         font-size: 64px;
         text-shadow: 0.5px 0.5px rgba(0,0,0,0.7);
-        max-width: 209px;
+        width: fit-content;
         line-height: 1;
     }
     .highlight {
