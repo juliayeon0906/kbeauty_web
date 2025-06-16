@@ -1,7 +1,7 @@
 <template>
     <div class="content-wrapper">
-        <AboutContent/>
         <AboutImage/>
+        <AboutContent/>
     </div>
 </template>
 
@@ -17,14 +17,21 @@ import AboutImage from './AboutImage.vue';
   justify-content: center;
   gap: 60px;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 93px 20px;
+  padding-bottom: 0px;
 }
 
 @media only screen and (max-width: 1200px) {
     .content-wrapper{
-        flex-direction: column-reverse;
+        padding: 130px 40px;
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .content-wrapper{
+        flex-direction: column;
         justify-content: center;
         width: 100%;
         align-content: center;

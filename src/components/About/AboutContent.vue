@@ -47,7 +47,7 @@
 
 .about-text {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 24px;
   color: #000000;
@@ -82,8 +82,17 @@
   background-color: #FF9D00;
   color: #F2F2F2; 
 }
-
 @media only screen and (max-width: 1200px) {
+  .header-section {
+    margin-bottom: 20px;
+  }
+  .about-text {
+    font-size: 10px;
+    line-height: 18px;
+    width: 204px;
+  }
+}
+@media only screen and (max-width: 650px) {
   .text-content {
     padding: 0 15%;
   }

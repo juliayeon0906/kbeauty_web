@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import ContactUsContainer from './ContactUsContainer.vue';
-import businessHourBg from '@/assets/images/Business_Hour.jpg';
+import businessHourBg from '@/assets/images/business_hour/Business_Hour.jpg'
 
 const businessHour = ref([
         {day: 'Monday', hour: '10AM - 8PM'},
-        {day: 'Tuesday', hour: '10AM - 8PM'},
-        {day: 'Wednesday', hour: '10AM - 8PM'},
-        {day: 'Thursday', hour: '10AM - 8PM'},
+        {day: 'Tuesday', hour: '10AM - 7PM'},
+        {day: 'Wednesday', hour: '10AM - 7PM'},
+        {day: 'Thursday', hour: '10AM - 7PM'},
         {day: 'Friday', hour: '10AM - 8PM'},
         {day: 'Saturday', hour: '10AM - 7PM'},
         {day: 'Sunday', hour: '10AM - 6PM'}
@@ -18,10 +18,10 @@ const businessHour = ref([
 
 <template>
     <div class="info-container px-10 py-8">
-        <div class="business-hour-container relative overflow-hidden" :style="{ backgroundImage: `url(${businessHourBg})` }">
-           <div class="hour-text-container flex flex-col gap-[40px] items-center">
-                <h2 class="text-white text-[32px]">Business Hour</h2>
-                <div class="flex gap-7">
+        <div class="business-hour-container" :style="{ backgroundImage: `url(${businessHourBg})` }">
+           <div class="hour-text-container flex flex-col items-center">
+                <h2 class="business-title text-white">Business Hour</h2>
+                <div class="hour-container flex gap-10">
                     <ul class="hour-info">
                         <li v-for="{day, index} in businessHour" :key="index">
                             {{ day }}
@@ -41,13 +41,14 @@ const businessHour = ref([
 
 <style scoped>
 .info-container{
-    height: 700px;
+    height: 430px;
     align-items: center;
     width: 100%;
     display: flex;
     gap: 28px;
     justify-content: center;
     padding: 32px 40px 32px 40px;
+    background-color: #2B2B2B;
 }
 .business-hour-container{
     width: 35%;
@@ -57,10 +58,12 @@ const businessHour = ref([
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto 100%;
+}
+.hour-text-container{
+    gap: 21px;
 }
 .hour-info {
     display: flex;
@@ -68,28 +71,63 @@ const businessHour = ref([
     color: white;
     font-weight: 700;
     gap: 14px;
+    font-size: 16px;
+}
+.business-title {
+    font-size: 32px
 }
 
-@media only screen and (min-width: 1900px) {
+/* @media only screen and (min-width: 1900px) {
     .hour-info {
-        font-size: 24px;
+        font-size: 16px;
     }
-}
+} */
 
 @media only screen and (max-width: 1200px) {
-    .info-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 4%;
-        height: auto;
-        overflow: visible;
+    .info-container{
+        height: 30vh;
+        gap: 14px;
+        padding: 32px 20px 32px 20px;
+    }
+    .hour-text-container{
+        gap: 8px;
+    }
+    .hour-container {
+        gap: 29px;
     }
     .business-hour-container {
         width: 100%;
-        height: 440px;
+        min-height: 202px;
     }
     .hour-info {
-        font-size: 14px;
+        font-size: 8px;
+        gap: 10px;
+    }
+    .business-title {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        height: fit-content;
+        overflow: visible;
+        gap: 0px;
+    }
+    .hour-container {
+        gap: 64px;
+    }
+    .business-hour-container {
+        height: 460px;
+    }
+    .hour-info{
+        font-size: 18px;
+    }
+    .business-title {
+        font-size: 36px;
     }
 }
 </style>
