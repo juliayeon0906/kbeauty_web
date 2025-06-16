@@ -50,7 +50,7 @@
             <input type="submit" name="submit" value="Submit" class="submitBtn">
         </form>
         <span class="text-[10px]">
-            <span class="text-red-500">*</span> Confirmation mail will be sent once we approve your reservation.
+            <span class="text-red-500">*</span> Confirmation email will be sent once we approve your reservation.
         </span>
     </div>
 </template>
@@ -131,6 +131,7 @@ watch(() => formData.value.service, (newVal) => {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: 550px;
 }
 label {
     font-family: 'Noto Sans', serif;
@@ -187,6 +188,9 @@ input {
 @media only screen and (max-width: 786px) {
     .input-container {
         padding: 0 10px;
+    }
+    .form-container {
+        width: 100%;
     }
     input {
         height: 30px;

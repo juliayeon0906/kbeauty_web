@@ -81,11 +81,13 @@ watch(
                         <router-link to="/about">About</router-link>
                     </div>
                 </nav>
-                <router-link to="/reservation" class="px-[100px] flex justify-center items-center">
-                    <button class="res-btn px-6 py-2 flex items-center justify-center">
-                        Book an appointment
-                    </button>
-                </router-link>
+                <div class="w-full flex justify-center">
+                    <router-link to="/reservation" class="flex justify-center">
+                        <button class="res-btn px-6 py-2 flex items-center justify-center">
+                            Book an appointment
+                        </button>
+                    </router-link>
+                </div>
                 <div v-if="isMobile && isMenuOpened" @click="toggleMenu" ref="menuBtnRef">
                     <img :src="closeIcon" alt="" class="h-[25px] mt-6">
                 </div>
@@ -135,7 +137,6 @@ watch(
         align-items: center;
         justify-content: center;
         padding: 1rem;
-        flex-wrap: wrap;
         width: 100vw;
     }
     .nav {
