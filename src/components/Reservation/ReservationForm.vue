@@ -16,9 +16,9 @@ import ReservationFormFormat from "@/components/Reservation/RservationFormFormat
     width: 100%;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     gap: 49.5px;
-    padding: 100px 0;
+    padding: 130px 0;
 }
 
 @media only screen and (max-width: 786px) {
