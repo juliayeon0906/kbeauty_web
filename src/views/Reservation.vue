@@ -1,7 +1,7 @@
 <template>
-    <ReservationFrom />
+  <ReservationFrom />
 </template>
 
 <script setup>
-import ReservationFrom from "@/components/Reservation/ReservationForm.vue"
+import ReservationFrom from '@/components/Reservation/ReservationForm.vue'
 </script>
