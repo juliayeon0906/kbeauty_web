@@ -1,12 +1,9 @@
 <template>
-  <div
-    class="menu-container"
-    :style="{ backgroundImage: `url(${menuBg})` }"
-  >
+  <div class="menu-container">
     <div
-      class="menu-item"
       v-for="{ image, index } in MENU_OPTIONS"
       :key="index"
+      class="menu-item"
     >
       <img :src="image" alt="menu" />
     </div>
@@ -14,8 +11,7 @@
 </template>
 
 <script setup>
-import { MENU_OPTIONS } from '@/constants';
-import menuBg from '@/assets/images/Our_Services_Background_Image.jpg';
+import { MENU_OPTIONS } from '@/constants'
 </script>
 
 <style scoped>
@@ -29,9 +25,6 @@ import menuBg from '@/assets/images/Our_Services_Background_Image.jpg';
   position: relative;
   margin-top: 60vh;
   padding-bottom: 20px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .menu-item {

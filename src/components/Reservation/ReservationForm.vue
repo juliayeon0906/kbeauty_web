@@ -1,32 +1,32 @@
 <template>
-    <div class="reservation-form">
-        <ReservationDetail/>
-        <ReservationFormFormat/>
-    </div>
+  <div class="reservation-form">
+    <ReservationDetail />
+    <ReservationFormFormat />
+  </div>
 </template>
 
 <script setup>
-import ReservationDetail from "@/components/Reservation/ReservationDetail.vue";
-import ReservationFormFormat from "@/components/Reservation/RservationFormFormat.vue";
+import ReservationDetail from '@/components/Reservation/ReservationDetail.vue'
+import ReservationFormFormat from '@/components/Reservation/RservationFormFormat.vue'
 </script>
 
 <style>
 .reservation-form {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 49.5px;
-    padding: 130px 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 49.5px;
+  padding: 130px 0;
 }
 
 @media only screen and (max-width: 786px) {
-    .reservation-form {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: 50px 0;
-    }
+  .reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px 0;
+  }
 }
 </style>

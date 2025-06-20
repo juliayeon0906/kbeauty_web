@@ -4,29 +4,20 @@
       <h1 class="header-text">ABOUT US</h1>
     </div>
     <p class="about-text">
-        K-Beauty is a hair salon in Halifax,
-        established in 2020 by Quinpool Road,
-        specializing in top-quality hair care and
-        premium Korean cosmetics. Combining
-        expert styling with cutting-edge K-beauty
-        products, we offer personalized services
-        that bring out your natural beauty while
-        keeping your hair healthy and vibrant.
-        Our team of skilled professionals is
-        dedicated to providing exceptional care
-        in a welcoming, modern space, ensuring
-        every client leaves feeling confident and
-        refreshed. At K-Beauty, our core value is
-        delivering great service with complete
-        customer satisfaction. Whether you're
-        looking for a bold new look or subtle
-        enhancements, K-Beauty delivers the
-        perfect blend of style and sophistication.
+      K-Beauty is a hair salon in Halifax, established in 2020 by Quinpool Road,
+      specializing in top-quality hair care and premium Korean cosmetics.
+      Combining expert styling with cutting-edge K-beauty products, we offer
+      personalized services that bring out your natural beauty while keeping
+      your hair healthy and vibrant. Our team of skilled professionals is
+      dedicated to providing exceptional care in a welcoming, modern space,
+      ensuring every client leaves feeling confident and refreshed. At K-Beauty,
+      our core value is delivering great service with complete customer
+      satisfaction. Whether you're looking for a bold new look or subtle
+      enhancements, K-Beauty delivers the perfect blend of style and
+      sophistication.
     </p>
     <router-link to="/">
-      <button class="learn-more-btn">
-        Learn More
-      </button>
+      <button class="learn-more-btn">Learn More</button>
     </router-link>
   </div>
 </template>
@@ -61,7 +52,7 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
-  background: #FFBF00;
+  background: #ffbf00;
   color: #171717;
   width: 151px;
   height: 36px;
@@ -73,14 +64,14 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 
+  box-shadow:
     1px 1px 2px rgba(0, 0, 0, 1),
     -1px -1px 2px rgba(255, 255, 255, 1);
 }
 
 .learn-more-btn:hover {
-  background-color: #FF9D00;
-  color: #F2F2F2; 
+  background-color: #ff9d00;
+  color: #f2f2f2;
 }
 @media only screen and (max-width: 1200px) {
   .header-section {
@@ -100,5 +91,4 @@
     width: 100%;
   }
 }
-
 </style>

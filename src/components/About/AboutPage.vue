@@ -1,15 +1,14 @@
 <template>
-    <div class="content-wrapper">
-        <AboutImage/>
-        <AboutContent/>
-    </div>
+  <div class="content-wrapper">
+    <AboutImage />
+    <AboutContent />
+  </div>
 </template>
 
 <script setup>
-import AboutContent from './AboutContent.vue';
-import AboutImage from './AboutImage.vue';
+import AboutContent from './AboutContent.vue'
+import AboutImage from './AboutImage.vue'
 </script>
-
 
 <style scoped>
 .content-wrapper {
@@ -23,18 +22,18 @@ import AboutImage from './AboutImage.vue';
 }
 
 @media only screen and (max-width: 1200px) {
-    .content-wrapper{
-        padding: 130px 40px;
-        gap: 30px;
-    }
+  .content-wrapper {
+    padding: 130px 40px;
+    gap: 30px;
+  }
 }
 
 @media only screen and (max-width: 650px) {
-    .content-wrapper{
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        align-content: center;
-    }
+  .content-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-content: center;
+  }
 }
 </style>

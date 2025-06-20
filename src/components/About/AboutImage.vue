@@ -1,7 +1,7 @@
 <template>
   <div class="image-content">
-    <img 
-      src="@/assets/images/about/about.jpg" 
+    <img
+      src="@/assets/images/about/about.jpg"
       alt="About Image"
       class="about-image"
     />
@@ -17,8 +17,8 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    .about-image{
-        max-height: 500px;
-    }
+  .about-image {
+    max-height: 500px;
+  }
 }
 </style>

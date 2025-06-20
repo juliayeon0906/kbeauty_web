@@ -12,12 +12,12 @@
 </template>
 
 <script setup>
-import backgroundImage from '@/assets/images/Landing_page_background_image.jpg';
-import Banner from '@/components/Home/Banner.vue';
-import DescriptionsBanner from '@/components/Home/DescriptionsBanner.vue';
-import ServicesBanner from '@/components/Home/ServicesBanner.vue';
-import CustomerExperiencesBanner from '@/components/Home/CustomerExperiencesBanner.vue';
-import BusinessInfoBanner from '@/components/Home/BusinessInfoBanner.vue';
+import backgroundImage from '@/assets/images/Landing_page_background_image.jpg'
+import Banner from '@/components/Home/Banner.vue'
+import DescriptionsBanner from '@/components/Home/DescriptionsBanner.vue'
+import ServicesBanner from '@/components/Home/ServicesBanner.vue'
+import CustomerExperiencesBanner from '@/components/Home/CustomerExperiencesBanner.vue'
+import BusinessInfoBanner from '@/components/Home/BusinessInfoBanner.vue'
 </script>
 
 <style>

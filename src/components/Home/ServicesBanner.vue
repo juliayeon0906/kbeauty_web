@@ -1,6 +1,10 @@
 <template>
   <div class="services-container">
-    <h2 class="service-header p-6 text-[48px] text-[#FFBF00] drop-shadow-[0.5px_0.5px_rgba(0,0,0,0.7)]">Our services</h2>
+    <h2
+      class="service-header p-6 text-[48px] text-[#FFBF00] drop-shadow-[0.5px_0.5px_rgba(0,0,0,0.7)]"
+    >
+      Our services
+    </h2>
     <div class="card-container">
       <router-link
         v-for="(service, index) in services"
@@ -8,7 +12,10 @@
         :to="'/services'"
         class="service-card"
       >
-        <div class="service-bg" :style="{ backgroundImage: `url(${service.img})` }"></div>
+        <div
+          class="service-bg"
+          :style="{ backgroundImage: `url(${service.img})` }"
+        ></div>
         <h3 class="service-name">{{ service.name }}</h3>
       </router-link>
     </div>
@@ -16,12 +23,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import img1 from '@/assets/images/services/Perm.jpg';
-import img2 from '@/assets/images/services/Cut.jpg';
-import img3 from '@/assets/images/services/Treatment.jpg';
-import img4 from '@/assets/images/services/Colour.jpg';
-import img5 from '@/assets/images/services/Styling.jpg';
+import { computed } from 'vue'
+import img1 from '@/assets/images/services/Perm.jpg'
+import img2 from '@/assets/images/services/Cut.jpg'
+import img3 from '@/assets/images/services/Treatment.jpg'
+import img4 from '@/assets/images/services/Colour.jpg'
+import img5 from '@/assets/images/services/Styling.jpg'
 
 const services = computed(() => {
   return [
@@ -29,9 +36,9 @@ const services = computed(() => {
     { name: 'cut', img: img2 },
     { name: 'treatment', img: img3 },
     { name: 'colour', img: img4 },
-    { name: 'styling', img: img5 }
-  ];
-});
+    { name: 'styling', img: img5 },
+  ]
+})
 </script>
 
 <style scoped>

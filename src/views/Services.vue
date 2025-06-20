@@ -1,7 +1,7 @@
 <template>
-    <ServicePage/>
+  <ServicePage />
 </template>
 
 <script setup>
-import ServicePage from '@/components/Services/ServicePage.vue';
+import ServicePage from '@/components/Services/ServicePage.vue'
 </script>
