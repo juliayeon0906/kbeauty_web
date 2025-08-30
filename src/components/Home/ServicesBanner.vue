@@ -98,8 +98,5 @@ const services = computed(() => {
     height: 360px;
     width: 80%;
   }
-  .service-header {
-    font-size: 48px;
-  }
 }
 </style>
