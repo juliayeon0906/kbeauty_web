@@ -91,4 +91,9 @@
     width: 100%;
   }
 }
+@media only screen and (max-width: 370px) {
+  .header-text {
+    font-size: 34px;
+  }
+}
 </style>

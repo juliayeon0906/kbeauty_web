@@ -86,7 +86,6 @@ const businessHour = ref([
 
 @media only screen and (max-width: 1200px) {
   .info-container {
-    height: 30vh;
     gap: 14px;
     padding: 32px 20px 32px 20px;
   }
