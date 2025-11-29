@@ -85,11 +85,14 @@ watch(
           </div>
         </nav>
         <div class="w-full flex justify-center">
-          <router-link to="/reservation" class="flex justify-center">
-            <button class="res-btn px-6 py-2 flex items-center justify-center">
+          <button class="flex justify-center">
+            <a
+              href="https://booking.cojilio.com/3881/online"
+              class="res-btn px-6 py-2 flex items-center justify-center"
+            >
               Book an appointment
-            </button>
-          </router-link>
+            </a>
+          </button>
         </div>
         <div
           v-if="isMobile && isMenuOpened"

@@ -2,11 +2,13 @@
   <BannerSkeleton :image-url="imageUrl">
     <template #banner-content>
       <div class="w-full">
-        <h2 class="banner-title">K-Beauty<br />Hair Salon</h2>
-        <h5 class="banner-subtitle">Find the beauty you deserve</h5>
-        <router-link to="/reservation">
-          <button class="resBtn px-6 py-4 mt-4">Book an appointment</button>
-        </router-link>
+        <h2 class="text-[48px]">K-Beauty<br />Hair Salon</h2>
+        <h5 class="text-[36px] font-[300]">Find the beauty you deserve</h5>
+        <button class="resBtn px-6 py-4 mt-4">
+          <a href="https://booking.cojilio.com/3881/online">
+            Book an appointment
+          </a>
+        </button>
       </div>
     </template>
   </BannerSkeleton>
@@ -20,13 +22,6 @@ const imageUrl = new URL('@/assets/images/HERO_BANNER.jpg', import.meta.url)
 </script>
 
 <style scoped>
-.banner-title {
-  font-size: 48px;
-}
-.banner-subtitle {
-  font-size: 36px;
-  font-weight: 300;
-}
 .resBtn {
   text-transform: uppercase;
   font-size: 15px;
@@ -40,18 +35,5 @@ const imageUrl = new URL('@/assets/images/HERO_BANNER.jpg', import.meta.url)
 .resBtn:hover {
   background-color: #ff9d00;
   color: #f2f2f2;
-}
-
-@media only screen and (max-width: 370px) {
-  .banner-title {
-    font-size: 30px;
-  }
-  .banner-subtitle {
-    font-size: 24px;
-    font-weight: 300;
-  }
-  .resBtn {
-    font-size: 10px;
-  }
 }
 </style>
