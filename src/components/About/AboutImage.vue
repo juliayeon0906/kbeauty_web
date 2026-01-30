@@ -14,6 +14,7 @@
   max-width: 500px;
   height: auto;
   border-radius: 8px;
+  transform: rotate(90deg);
 }
 
 @media only screen and (max-width: 1200px) {
