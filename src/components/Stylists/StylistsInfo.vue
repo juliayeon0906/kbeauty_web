@@ -25,7 +25,7 @@
 </template>
 <script setup>
 import { STYLISTS_INFO } from '@/constants.js'
-import stylistBg from '@/assets/images/STYLISTS/Stylist_background_image.jpg'
+import stylistBg from '@/assets/images/STYLISTS/Stylist_background_image.webp'
 </script>
 <style scoped>
 .info-card-container {

@@ -24,11 +24,11 @@
 
 <script setup>
 import { computed } from 'vue'
-import img1 from '@/assets/images/services/Perm.jpg'
-import img2 from '@/assets/images/services/Cut.jpg'
-import img3 from '@/assets/images/services/Treatment.jpg'
-import img4 from '@/assets/images/services/Colour.jpg'
-import img5 from '@/assets/images/services/Styling.jpg'
+import img1 from '@/assets/images/services/Perm.webp'
+import img2 from '@/assets/images/services/Cut.webp'
+import img3 from '@/assets/images/services/Treatment.webp'
+import img4 from '@/assets/images/services/Colour.webp'
+import img5 from '@/assets/images/services/Styling.webp'
 
 const services = computed(() => {
   return [

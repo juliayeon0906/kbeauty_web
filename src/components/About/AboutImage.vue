@@ -1,7 +1,7 @@
 <template>
   <div class="image-content">
     <img
-      src="@/assets/images/about/about.jpg"
+      src="@/assets/images/about/about.webp"
       alt="About Image"
       class="about-image"
     />

@@ -15,7 +15,7 @@
 <script setup>
 import BannerSkeleton from '@/components/BannerSkeleton.vue'
 
-const imageUrl = new URL('@/assets/images/HERO_BANNER.jpg', import.meta.url)
+const imageUrl = new URL('@/assets/images/HERO_BANNER.webp', import.meta.url)
   .href
 </script>
 

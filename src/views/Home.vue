@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import backgroundImage from '@/assets/images/Landing_page_background_image.jpg'
+import backgroundImage from '@/assets/images/Landing_page_background_image.webp'
 import Banner from '@/components/Home/Banner.vue'
 import DescriptionsBanner from '@/components/Home/DescriptionsBanner.vue'
 import ServicesBanner from '@/components/Home/ServicesBanner.vue'

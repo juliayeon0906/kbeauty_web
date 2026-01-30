@@ -1,7 +1,6 @@
-import JoyImage from '@/assets/images/Designers/A.jpg'
-import EstherImage from '@/assets/images/Designers/B.jpg'
-import LucyImage from '@/assets/images/Designers/C.jpg'
-import EllieImage from '@/assets/images/Designers/D.jpg'
+import JoyImage from '@/assets/images/Designers/A.webp'
+import LucyImage from '@/assets/images/Designers/C.webp'
+import EllieImage from '@/assets/images/Designers/D.webp'
 import CallIcon from '@/assets/icons/call_Icon.png'
 import GmailIcon from '@/assets/icons/gmail.png'
 import MapIcon from '@/assets/icons/ping_mark.png'
@@ -19,15 +18,6 @@ export const STYLISTS_INFO = [
         description:
           'Joy ran a hair salon in Sindorim, Korea, for 18 years, gaining extensive experience in the beauty industry while building a loyal client base. She also served as a supervising professor for graduating students in the Department of Beauty at Hyejeon College, where she guided them in mastering a wide range of beauty techniques and preparing for their professional careers. With expertise in all aspects of beauty, She take pride in delivering exceptional results tailored to each client’s unique needs.',
         image: JoyImage,
-      },
-      {
-        name: 'Esther',
-        position: 'Master Stylist',
-        description:
-          "Esther has extensive hands-on experience as a nail technician and hairstylist in Korea's dynamic beauty industry. Since settling in Halifax in 2024, she has brought cutting-edge expertise in trendy Korean beauty techniques, including haircuts tailored to various textures and lengths, hair coloring, highlights, Korean perms, and treatments." +
-          '\n' +
-          'Above all, Esther believes clear communication with clients is the most crucial part of her work. She is dedicated to providing sophisticated services and delivering exceptional beauty results, ensuring every client leaves feeling confident and satisfied.',
-        image: EstherImage,
       },
       {
         name: 'Lucy',

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import ContactUsContainer from './ContactUsContainer.vue'
-import businessHourBg from '@/assets/images/business_hour/Business_Hour.jpg'
+import businessHourBg from '@/assets/images/business_hour/Business_Hour.webp'
 
 const businessHour = ref([
   { day: 'Monday', hour: '10AM - 8PM' },

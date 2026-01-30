@@ -20,7 +20,7 @@ import { ref } from 'vue'
 const images = ref([])
 
 onMounted(() => {
-  const imageModules = import.meta.glob('@/assets/images/GALLERY/*.jpg', {
+  const imageModules = import.meta.glob('@/assets/images/GALLERY/*.webp', {
     eager: true,
   })
   images.value = Object.entries(imageModules)
