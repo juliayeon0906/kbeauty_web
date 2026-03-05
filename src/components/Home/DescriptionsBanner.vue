@@ -1,15 +1,16 @@
 <template>
   <div class="description-container">
-    <div class="text-container">
-      <h2 class="desc-header">
-        <span class="highlight">Our</span><br />
-        <span class="highlight">Values</span>
-      </h2>
-      <h5 class="description">
+    <div class="inner">
+      <div class="text-left">
+        <div class="gold-line" />
+        <h2 class="desc-header">Our<br /><span class="highlight">Values</span></h2>
+      </div>
+      <div class="divider-v" />
+      <p class="description">
         At K-Beauty, customer satisfaction and exceptional service are our top
         priorities. Our dedicated team in Halifax is here to provide you with a
         welcoming and personalized experience.
-      </h5>
+      </p>
     </div>
   </div>
 </template>
@@ -18,51 +19,97 @@
 
 <style scoped>
 .description-container {
-  min-height: 40vh;
+  padding: 100px 8%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-top: 20px;
 }
-.text-container {
+
+.inner {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 50px;
+  gap: 64px;
+  max-width: 1100px;
   width: 100%;
-  flex-wrap: wrap;
 }
+
+.text-left {
+  flex: 0 0 auto;
+}
+
+.gold-line {
+  width: 36px;
+  height: 3px;
+  background-color: #ffbf00;
+  margin-bottom: 20px;
+}
+
 .desc-header {
   font-size: 64px;
-  text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.7);
-  width: fit-content;
-  line-height: 1;
+  font-weight: 700;
+  line-height: 1.05;
+  text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.15);
 }
+
 .highlight {
   color: #ffbf00;
 }
-.description {
-  font-family: 'Noto Sans', serif;
-  font-style: normal;
-  font-size: 18px;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-variation-settings: 'wdth' 100;
-  width: 494px;
-  line-height: 1.8;
+
+.divider-v {
+  width: 1px;
+  height: 120px;
+  background-color: #e0e0e0;
+  flex-shrink: 0;
 }
 
-@media only screen and (max-width: 500px) {
+.description {
+  font-family: 'Noto Sans', serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #3f3f3f;
+  max-width: 500px;
+}
+
+@media only screen and (max-width: 800px) {
+  .description-container {
+    padding: 72px 7%;
+  }
+
+  .inner {
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  .divider-v {
+    display: none;
+  }
+
   .desc-header {
     font-size: 48px;
   }
+
   .description {
-    font-size: 16px;
-    padding-right: 10%;
-    padding-left: 10%;
+    font-size: 15px;
+    max-width: 100%;
+    line-height: 1.85;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .description-container {
+    padding: 60px 6%;
+  }
+
+  .desc-header {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 14px;
   }
 }
 </style>

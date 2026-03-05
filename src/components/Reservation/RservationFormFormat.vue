@@ -175,89 +175,226 @@ watch(
 </script>
 
 <style>
+/* ── Form Container ── */
+.input-container {
+  width: 100%;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  width: 550px;
+  gap: 0;
+  width: 560px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 40px;
 }
+
+/* ── Labels ── */
 label {
-  font-family: 'Noto Sans', serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: #3f3f3f;
-  font-style: normal;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #999;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 6px;
 }
 
-input {
-  height: 35px;
-  border-radius: 10px;
-  background: #d9d9d9;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+/* ── Text / Number / Email Inputs ── */
+input[type='text'],
+input[type='number'],
+input[type='email'] {
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #ddd;
+  border-radius: 0;
+  padding: 0 2px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  width: 100%;
+  transition: border-color 0.2s ease;
+  outline: none;
 }
 
+input[type='text']:focus,
+input[type='number']:focus,
+input[type='email']:focus {
+  border-bottom-color: #ffbf00;
+}
+
+/* ── Select ── */
+select {
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #ddd;
+  border-radius: 0;
+  padding: 0 2px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+select:focus {
+  border-bottom-color: #ffbf00;
+}
+
+/* ── Textarea ── */
 .comment-area {
-  border-radius: 10px;
-  background: #d9d9d9;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #ddd;
+  border-radius: 0;
+  padding: 10px 2px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  width: 100%;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+  display: block;
 }
 
-/* Date Picker Style */
+.comment-area:focus {
+  border-bottom-color: #ffbf00;
+}
+
+/* ── Date Picker ── */
 :root {
-  --dp-border-radius: 10px;
+  --dp-border-radius: 0px;
+  --dp-border-color: transparent;
+  --dp-border-color-hover: transparent;
+  --dp-font-family: 'Noto Sans', sans-serif;
+  --dp-font-size: 14px;
+  --dp-input-padding: 0 2px;
 }
+
 .dp__theme_light {
-  --dp-background-color: #d9d9d9;
+  --dp-background-color: transparent;
+  --dp-border-color: transparent;
+  --dp-text-color: #1a1a1a;
+  --dp-hover-color: rgba(255, 191, 0, 0.1);
+  --dp-hover-text-color: #1a1a1a;
+  --dp-primary-color: #ffbf00;
+  --dp-primary-text-color: #1a1a1a;
 }
+
 .dp__outer_menu_wrap {
   background-color: #fff !important;
 }
 
-.submitBtn {
-  background-color: #ffbf00;
-  width: 121.9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease;
-  padding: 5px 0;
-  margin-top: 10px;
-}
-.submitBtn:hover {
-  background-color: #ff9d00;
-  color: #f2f2f2;
+/* Add bottom border to datepicker input */
+:deep(.dp__input) {
+  border: none;
+  border-bottom: 1.5px solid #ddd;
+  border-radius: 0;
+  padding: 0 2px;
+  height: 40px;
+  font-size: 14px;
+  background: transparent;
+  transition: border-color 0.2s ease;
 }
 
+:deep(.dp__input:focus) {
+  border-bottom-color: #ffbf00;
+  box-shadow: none;
+}
+
+:deep(.dp__input_icon) {
+  display: none;
+}
+
+/* ── Row groups (gender + treated) ── */
+.flex.flex-row {
+  gap: 24px;
+}
+
+/* ── Submit ── */
+.submitBtn {
+  margin-top: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  background-color: #ffbf00;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  width: fit-content;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 10px rgba(255, 191, 0, 0.3);
+}
+
+.submitBtn:hover {
+  background-color: #ff9d00;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(255, 157, 0, 0.45);
+}
+
+/* ── Confirm note ── */
+.text-\[10px\] {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 0.04em;
+  margin-top: 12px;
+}
+
+/* ── Responsive ── */
 @media only screen and (max-width: 786px) {
-  .input-container {
-    padding: 0 10px;
-  }
   .form-container {
     width: 100%;
+    padding: 28px 20px;
   }
-  input {
-    height: 30px;
-    font-size: 12px;
+
+  label {
+    font-size: 9px;
   }
+
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
   select,
-  label,
-  textarea {
-    font-size: 12px;
+  .comment-area {
+    font-size: 13px;
   }
-  .submitBtn {
-    width: 100px;
-    font-size: 12px;
-  }
-  textarea {
-    resize: vertical;
-  }
+
   :root {
-    --dp-font-size: 12px;
+    --dp-font-size: 13px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .form-container {
+    padding: 24px 16px;
+  }
+
+  .flex.flex-row {
+    flex-direction: column;
+    gap: 0;
   }
 }
 </style>

@@ -12,21 +12,8 @@ const route = useRoute()
 const windowWidth = ref(window.innerWidth)
 const isMenuOpened = ref(false)
 const navRef = ref(null)
-const menuBtnRef = ref(null)
 
 const isMobile = computed(() => windowWidth.value <= 1250)
-
-const navClass = computed(() => {
-  return isMenuOpened.value && isMobile.value
-    ? 'flex justify-center flex-col items-center gap-4'
-    : 'flex justify-between items-center min-w-[70vw]'
-})
-
-const categoreisStyle = computed(() => {
-  return isMenuOpened.value && isMobile.value
-    ? 'flex flex-col justify-center gap-4'
-    : 'categories'
-})
 
 const updateWidth = () => {
   windowWidth.value = window.innerWidth
@@ -61,120 +48,262 @@ watch(
 </script>
 
 <template>
-  <div
-    ref="navRef"
-    class="nav-container fixed top-0 left-0 h-[90px] w-full z-50"
-  >
-    <div :class="isMenuOpened && isMobile ? 'open-navbar' : 'navbar'">
+  <div ref="navRef" class="nav-container">
+    <!-- Desktop -->
+    <div v-if="!isMobile" class="navbar">
       <router-link to="/" class="logo-container">
-        <img class="h-[28px] max-w-sm" :src="logo" alt="logo" />
+        <img class="logo-img" :src="logo" alt="logo" />
       </router-link>
-      <div v-if="!isMobile || isMenuOpened" :class="navClass">
-        <nav :class="categoreisStyle">
-          <div class="nav">
-            <router-link to="/stylists">Stylists</router-link>
-          </div>
-          <div class="nav">
-            <router-link to="/services">Services</router-link>
-          </div>
-          <div class="nav">
-            <router-link to="/gallery">Gallery</router-link>
-          </div>
-          <div class="nav">
-            <router-link to="/about">About</router-link>
-          </div>
-        </nav>
-        <div class="w-full flex justify-center">
-          <router-link to="/reservation" class="flex justify-center">
-            <button class="res-btn px-6 py-2 flex items-center justify-center">
-              Book an appointment
-            </button>
-          </router-link>
-        </div>
-        <div
-          v-if="isMobile && isMenuOpened"
-          ref="menuBtnRef"
-          @click="toggleMenu"
-        >
-          <img :src="closeIcon" alt="" class="h-[25px] mt-6" />
-        </div>
-      </div>
-      <div v-else>
-        <div ref="menuBtnRef" @click="toggleMenu">
-          <img :src="hamburgerIcon" alt="hamburger icon" class="h-[25px]" />
-        </div>
+      <nav class="categories">
+        <router-link to="/stylists" class="nav-link">Stylists</router-link>
+        <router-link to="/services" class="nav-link">Services</router-link>
+        <router-link to="/gallery" class="nav-link">Gallery</router-link>
+        <router-link to="/about" class="nav-link">About</router-link>
+      </nav>
+      <div class="book-wrap">
+        <router-link to="/reservation">
+          <button class="res-btn">Book an appointment</button>
+        </router-link>
       </div>
     </div>
+
+    <!-- Mobile -->
+    <div v-else class="navbar-mobile">
+      <router-link to="/" class="logo-container">
+        <img class="logo-img" :src="logo" alt="logo" />
+      </router-link>
+      <button class="hamburger-btn" @click="toggleMenu" aria-label="Toggle menu">
+        <img v-if="!isMenuOpened" :src="hamburgerIcon" alt="menu" class="h-[22px]" />
+        <img v-else :src="closeIcon" alt="close" class="h-[22px]" />
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <transition name="menu-slide">
+      <div v-if="isMobile && isMenuOpened" class="mobile-menu">
+        <nav class="mobile-nav">
+          <router-link to="/stylists" class="mobile-nav-link">Stylists</router-link>
+          <router-link to="/services" class="mobile-nav-link">Services</router-link>
+          <router-link to="/gallery" class="mobile-nav-link">Gallery</router-link>
+          <router-link to="/about" class="mobile-nav-link">About</router-link>
+        </nav>
+        <router-link to="/reservation">
+          <button class="res-btn-mobile">Book an appointment</button>
+        </router-link>
+      </div>
+    </transition>
   </div>
 </template>
 
 <style scoped>
-.navbar {
-  min-height: 6rem;
+/* ── Container ── */
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
-  display: flex;
-  background-color: #f2f2f2;
-  justify-content: space-between;
-  align-items: center;
-}
-.open-navbar {
-  width: 100%;
-  padding-top: 3%;
-  padding-bottom: 4%;
-  display: flex;
-  background-color: #f2f2f2;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 30px;
-}
-.logo-container {
-  display: flex;
-  min-height: 100%;
-  align-items: center;
-  justify-content: center;
-  width: 30vw;
-}
-.categories {
-  display: flex;
-  gap: 45px;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  width: 100vw;
-}
-.nav {
-  display: block;
-  padding: 10px;
-  color: #3f3f3f;
-  transition: text-decoration-color 0.3s ease;
-}
-.nav:hover {
-  text-decoration: underline solid 10%;
-  text-decoration-color: #3f3f3f;
-}
-.res-btn {
-  width: 100vw;
-  text-transform: uppercase;
-  font-size: 12px;
-  min-height: 38px;
-  max-width: fit-content;
-  background-color: #ffbf00;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-.res-btn:hover {
-  background-color: #ff9d00;
-  color: #f2f2f2;
+  z-index: 50;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
-@media only screen and (max-width: 786px) {
-  a {
-    font-size: 14px;
-  }
+/* ── Desktop Navbar ── */
+.navbar {
+  height: 90px;
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #ffbf00;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.logo-img {
+  height: 28px;
+  width: auto;
+}
+
+/* ── Nav Links ── */
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #3f3f3f;
+  text-decoration: none;
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffbf00;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1a1a1a;
+}
+
+.nav-link:hover::after,
+.nav-link.router-link-exact-active::after {
+  width: 100%;
+}
+
+.nav-link.router-link-exact-active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* ── Book Button ── */
+.book-wrap {
+  flex: 0 0 auto;
+}
+
+.res-btn {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  background-color: #ffbf00;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 191, 0, 0.35);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.res-btn:hover {
+  background-color: #ff9d00;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255, 157, 0, 0.45);
+}
+
+/* ── Mobile Navbar bar ── */
+.navbar-mobile {
+  height: 70px;
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #ffbf00;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Mobile Dropdown Menu ── */
+.mobile-menu {
+  background-color: #f2f2f2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 5% 36px;
+  border-bottom: 2px solid #ffbf00;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.mobile-nav-link {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3f3f3f;
+  text-decoration: none;
+  padding-bottom: 4px;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.mobile-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #ffbf00;
+  transition: width 0.3s ease;
+}
+
+.mobile-nav-link.router-link-exact-active::after {
+  width: 100%;
+}
+
+.mobile-nav-link.router-link-exact-active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.res-btn-mobile {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 32px;
+  background-color: #ffbf00;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 191, 0, 0.35);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.res-btn-mobile:hover {
+  background-color: #ff9d00;
+  color: #fff;
+}
+
+/* ── Slide transition ── */
+.menu-slide-enter-active,
+.menu-slide-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.menu-slide-enter-from,
+.menu-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 </style>

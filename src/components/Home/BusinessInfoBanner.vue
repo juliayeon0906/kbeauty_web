@@ -4,34 +4,32 @@ import ContactUsContainer from './ContactUsContainer.vue'
 import businessHourBg from '@/assets/images/business_hour/Business_Hour.webp'
 
 const businessHour = ref([
-  { day: 'Monday', hour: '10AM - 8PM' },
-  { day: 'Tuesday', hour: '10AM - 7PM' },
-  { day: 'Wednesday', hour: '10AM - 7PM' },
-  { day: 'Thursday', hour: '10AM - 7PM' },
-  { day: 'Friday', hour: '10AM - 8PM' },
-  { day: 'Saturday', hour: '10AM - 7PM' },
-  { day: 'Sunday', hour: '10AM - 6PM' },
+  { day: 'Monday', hour: '10AM – 8PM' },
+  { day: 'Tuesday', hour: '10AM – 7PM' },
+  { day: 'Wednesday', hour: '10AM – 7PM' },
+  { day: 'Thursday', hour: '10AM – 7PM' },
+  { day: 'Friday', hour: '10AM – 8PM' },
+  { day: 'Saturday', hour: '10AM – 7PM' },
+  { day: 'Sunday', hour: '10AM – 6PM' },
 ])
 </script>
 
 <template>
-  <div class="info-container px-10 py-8">
+  <div class="info-container">
     <div
       class="business-hour-container"
       :style="{ backgroundImage: `url(${businessHourBg})` }"
     >
-      <div class="hour-text-container flex flex-col items-center">
-        <h2 class="business-title text-white">Business Hour</h2>
-        <div class="hour-container flex gap-10">
-          <ul class="hour-info">
-            <li v-for="{ day, index } in businessHour" :key="index">
-              {{ day }}
-            </li>
+      <div class="hour-overlay" />
+      <div class="hour-text-container">
+        <div class="gold-line" />
+        <h2 class="business-title">Business Hours</h2>
+        <div class="hour-table">
+          <ul class="hour-col">
+            <li v-for="item in businessHour" :key="item.day">{{ item.day }}</li>
           </ul>
-          <ul class="hour-info">
-            <li v-for="{ hour, index } in businessHour" :key="index">
-              {{ hour }}
-            </li>
+          <ul class="hour-col hour-col--gold">
+            <li v-for="item in businessHour" :key="item.hour">{{ item.hour }}</li>
           </ul>
         </div>
       </div>
@@ -42,92 +40,101 @@ const businessHour = ref([
 
 <style scoped>
 .info-container {
-  height: 430px;
-  align-items: center;
   width: 100%;
   display: flex;
-  gap: 28px;
-  justify-content: center;
-  padding: 32px 40px 32px 40px;
-  background-color: #2b2b2b;
+  gap: 2px;
+  background-color: #1a1a1a;
 }
+
+/* ── Business Hours ── */
 .business-hour-container {
-  width: 35%;
-  height: 100%;
-  border-radius: 4.5px;
-  background: #2b2b2b;
+  position: relative;
+  width: 38%;
+  min-height: 460px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  flex-shrink: 0;
 }
+
+.hour-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+}
+
 .hour-text-container {
-  gap: 21px;
-}
-.hour-info {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  color: white;
-  font-weight: 700;
-  gap: 14px;
-  font-size: 16px;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px;
 }
+
+.gold-line {
+  width: 32px;
+  height: 2px;
+  background-color: #ffbf00;
+}
+
 .business-title {
-  font-size: 32px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 4px;
 }
 
-/* @media only screen and (min-width: 1900px) {
-    .hour-info {
-        font-size: 16px;
-    }
-} */
-
-@media only screen and (max-width: 1200px) {
-  .info-container {
-    gap: 14px;
-    padding: 32px 20px 32px 20px;
-  }
-  .hour-text-container {
-    gap: 8px;
-  }
-  .hour-container {
-    gap: 29px;
-  }
-  .business-hour-container {
-    width: 100%;
-    min-height: 202px;
-  }
-  .hour-info {
-    font-size: 8px;
-    gap: 10px;
-  }
-  .business-title {
-    font-size: 16px;
-  }
+.hour-table {
+  display: flex;
+  gap: 40px;
 }
 
-@media only screen and (max-width: 530px) {
+.hour-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.hour-col--gold {
+  color: #ffbf00;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 900px) {
   .info-container {
     flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    height: fit-content;
-    overflow: visible;
-    gap: 0px;
+    gap: 0;
   }
-  .hour-container {
-    gap: 64px;
-  }
+
   .business-hour-container {
-    height: 460px;
+    width: 100%;
+    min-height: 360px;
   }
-  .hour-info {
+
+  .hour-text-container {
+    padding: 48px 10%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .business-title {
     font-size: 18px;
   }
-  .business-title {
-    font-size: 36px;
+
+  .hour-col {
+    font-size: 13px;
   }
 }
 </style>

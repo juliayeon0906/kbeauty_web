@@ -1,6 +1,5 @@
 import JoyImage from '@/assets/images/Designers/A.webp'
 import LucyImage from '@/assets/images/Designers/C.webp'
-import EllieImage from '@/assets/images/Designers/D.webp'
 import CallIcon from '@/assets/icons/call_Icon.png'
 import GmailIcon from '@/assets/icons/gmail.png'
 import MapIcon from '@/assets/icons/ping_mark.png'
@@ -25,13 +24,6 @@ export const STYLISTS_INFO = [
         description:
           'With over 20 years of experience in the beauty industry, Lucy brings extensive expertise to her work. She has styled K-pop stars in Korea, collaborated on fashion magazine shoots, and managed her own salon in Seoul as CEO. After graduating from the Shiseido Beauty Academy in Japan, she further expanded her skills through experiences in Japan, Australia, and Vancouver. Lucy is proficient in all areas of styling, including cuts, perms, coloring, treatments, and updos. She is excited to offer her top-quality services at K-Beauty.',
         image: LucyImage,
-      },
-      {
-        name: 'Ellie',
-        position: 'Master Stylist',
-        description:
-          'Ellie is a highly passionate master stylist. Early in her career, she worked at five different hair salons over the course of seven years to gain as much experience as possible. With all the skills she acquired, Ellie has successfully run her own business for the past 19 years. She specializes in providing personalized hair styling to ensure customer satisfaction.',
-        image: EllieImage,
       },
     ],
   },
@@ -83,19 +75,9 @@ export const REVIEWS = [
     content: '“Joy was my stylist and she did an amazing job 💗🥰”',
   },
   {
-    id: '102',
-    content:
-      '“My hairstylist was Esther. She was super nice and patient, I really like the haircut she gave me. The staff at K-Beauty Salon were all very welcoming and passionate, definitely recommend :)”',
-  },
-  {
     id: '103',
     content:
-      '“지난주 여기서 아들의 머리를 잘랐는데 너무 좋았어요. 스텝분들도 친철하고 따뜻하게 반겨주는 분위기 최고입니다. 무엇보다 아들이 헤어스타일을 너무 좋아합니다.”',
-  },
-  {
-    id: '104',
-    content:
-      '“I was little scared to try completely new salon than the other very marketed ones. But I am leaving with great experience from hair dresser Esther. She is very kind and clever. Great price and value for money. I am going to visit again for sure.”',
+      '”지난주 여기서 아들의 머리를 잘랐는데 너무 좋았어요. 스텝분들도 친철하고 따뜻하게 반겨주는 분위기 최고입니다. 무엇보다 아들이 헤어스타일을 너무 좋아합니다.”',
   },
   {
     id: '105',
@@ -122,5 +104,4 @@ export const REVIEWS = [
     content:
       '“It is friendly and has a good atmosphere. They responded with a smile to even difficult orders, and when I visit here, my day feels good. There is a reason why I recommend it.”',
   },
-  { id: '110', content: '“Ellie is best！！！ she cut my hair very stylish.”' },
 ]

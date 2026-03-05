@@ -1,11 +1,11 @@
 <template>
   <div class="menu-container">
     <div
-      v-for="{ image, index } in MENU_OPTIONS"
+      v-for="(option, index) in MENU_OPTIONS"
       :key="index"
       class="menu-item"
     >
-      <img :src="image" alt="menu" />
+      <img :src="option.image" alt="menu" class="menu-img" />
     </div>
   </div>
 </template>
@@ -18,58 +18,63 @@ import { MENU_OPTIONS } from '@/constants'
 .menu-container {
   display: flex;
   width: 100%;
-  gap: 5%;
+  gap: 24px;
   justify-content: center;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding: 0 5% 100px;
+  margin-top: -100px;
   position: relative;
-  margin-top: 60vh;
-  padding-bottom: 20px;
+  z-index: 2;
 }
 
 .menu-item {
+  flex: 1;
+  max-width: 380px;
   background-color: #2b2b2b;
-  opacity: 0.95;
-  padding: 5% 3% 5%;
-  border-radius: 4px;
+  padding: 40px 28px;
   display: flex;
   justify-content: center;
-  align-items: start;
-  transition: transform ease 0.5s;
+  align-items: flex-start;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .menu-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.menu-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 @media only screen and (max-width: 1200px) {
   .menu-container {
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
+    padding: 0 5% 80px;
+    margin-top: -80px;
   }
+
   .menu-item {
-    height: fit-content;
-  }
-  img {
-    width: 60%;
-  }
-}
-
-@media only screen and (min-height: 1000px) {
-  .menu-container {
-    margin-top: 40vh;
+    width: 100%;
+    max-width: 560px;
+    padding: 32px 24px;
   }
 }
 
-@media only screen and (max-height: 850px) {
+@media only screen and (max-width: 600px) {
   .menu-container {
-    margin-top: 70vh;
+    padding: 0 4% 60px;
+    gap: 16px;
+    margin-top: -60px;
   }
-}
 
-@media only screen and (max-height: 650px) {
-  .menu-container {
-    margin-top: 110vh;
+  .menu-item {
+    padding: 24px 16px;
   }
 }
 </style>

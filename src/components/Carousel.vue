@@ -15,16 +15,12 @@ const props = defineProps({
       :num-visible="1"
       :num-scroll="1"
       circular
-      :autoplay-interval="3000"
+      :autoplay-interval="4000"
       :pt="{ indicatorButton: { class: 'indicator-button' } }"
     >
       <template #item="slotProps">
-        <div class="max-w-[465px]">
-          <div class="mb-7">
-            <span class="reviewText">
-              {{ slotProps.data.content }}
-            </span>
-          </div>
+        <div class="review-item">
+          <p class="reviewText">{{ slotProps.data.content }}</p>
         </div>
       </template>
     </Carousel>
@@ -32,13 +28,21 @@ const props = defineProps({
 </template>
 
 <style>
+.review-item {
+  display: flex;
+  justify-content: center;
+  padding: 0 12px 32px;
+}
+
 .reviewText {
-  color: white;
+  color: #e8e8e8;
   font-family: 'Noto Sans', serif;
-  font-style: normal;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 100%;
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.9;
+  text-align: center;
+  max-width: 640px;
 }
 
 .p-carousel .p-carousel-item {
@@ -47,26 +51,21 @@ const props = defineProps({
 }
 
 .p-carousel-indicator-list {
-  gap: 20px !important;
+  gap: 10px !important;
+  padding-top: 24px !important;
 }
 
-/* Default inactive state for indicator buttons */
 .p-carousel .p-carousel-indicator-button {
-  height: 15px;
-  width: 15px;
-  background-color: #d9d9d9 !important; /* Inactive state */
-  border-radius: 50%;
+  height: 6px;
+  width: 24px;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 3px;
+  transition: background-color 0.3s ease, width 0.3s ease;
 }
 
-/* Active state for indicator buttons */
-.p-carousel
-  .p-carousel-indicator.p-carousel-indicator-active
-  .p-carousel-indicator-button {
-  background-color: #ffbf00 !important; /* Active state */
-}
-
-.indicator-button {
+.p-carousel .p-carousel-indicator.p-carousel-indicator-active .p-carousel-indicator-button {
   background-color: #ffbf00 !important;
+  width: 36px;
 }
 
 .p-carousel-next-button,
@@ -75,6 +74,10 @@ const props = defineProps({
 }
 
 @media screen and (max-width: 700px) {
+  .reviewText {
+    font-size: 15px;
+  }
+
   .p-carousel .p-carousel-indicator-button {
     visibility: hidden;
   }
