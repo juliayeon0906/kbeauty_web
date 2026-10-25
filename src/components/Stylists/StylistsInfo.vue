@@ -2,20 +2,35 @@
   <div class="page-wrapper" :style="{ backgroundImage: `url(${stylistBg})` }">
     <div class="stylists-grid">
       <div
-        v-for="(stylist, index) in STYLISTS_INFO[0].STYLISTS"
-        :key="index"
+        v-for="(stylist, index) in stylists"
+        :key="`${index}-${stylist.name}`"
         class="stylist-card"
         :class="{ reverse: index % 2 !== 0 }"
       >
         <div class="image-wrap">
-          <img :src="stylist.image" :alt="stylist.name" class="stylist-image" />
+          <img
+            v-if="imageSrc(stylist)"
+            :src="imageSrc(stylist)"
+            :alt="stylist.name"
+            class="stylist-image"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            @error="onImageError(stylist)"
+          />
+          <div v-else class="image-placeholder" aria-hidden="true">
+            {{ stylist.name.charAt(0) }}
+          </div>
         </div>
         <div class="info-wrap">
           <div class="gold-line" />
           <h3 class="stylist-name">{{ stylist.name }}</h3>
-          <p class="stylist-position">{{ stylist.position }}</p>
-          <div class="divider" />
-          <p class="stylist-desc">{{ stylist.description }}</p>
+          <p v-if="stylist.position" class="stylist-position">
+            {{ stylist.position }}
+          </p>
+          <template v-if="stylist.description">
+            <div class="divider" />
+            <p class="stylist-desc">{{ stylist.description }}</p>
+          </template>
         </div>
       </div>
     </div>
@@ -23,8 +38,36 @@
 </template>
 
 <script setup>
-import { STYLISTS_INFO } from '@/constants.js'
+import { ref, onMounted } from 'vue'
+import { STYLISTS_CSV_URL, DEFAULT_STYLISTS } from '@/constants'
+import { fetchStylists } from '@/utils/stylists'
 import stylistBg from '@/assets/images/STYLISTS/Stylist_background_image.webp'
+
+const stylists = ref(DEFAULT_STYLISTS)
+// Image URLs that failed to load (e.g. a Drive photo that isn't shared publicly)
+const brokenImages = ref(new Set())
+
+// Sheet photo → bundled photo of the same stylist → monogram placeholder
+const imageSrc = ({ image, fallbackImage }) => {
+  if (image && !brokenImages.value.has(image)) return image
+  if (fallbackImage && !brokenImages.value.has(fallbackImage)) {
+    return fallbackImage
+  }
+  return ''
+}
+
+const onImageError = (stylist) => {
+  brokenImages.value.add(imageSrc(stylist))
+}
+
+onMounted(async () => {
+  if (!STYLISTS_CSV_URL) return
+  try {
+    stylists.value = await fetchStylists()
+  } catch (error) {
+    console.warn('Using default stylists:', error)
+  }
+})
 </script>
 
 <style scoped>
@@ -64,6 +107,8 @@ import stylistBg from '@/assets/images/STYLISTS/Stylist_background_image.webp'
 .image-wrap {
   overflow: hidden;
   aspect-ratio: 3 / 4;
+  /* shown while a photo loads, so the card keeps its shape */
+  background-color: #e4e4e4;
 }
 
 .stylist-image {
@@ -76,6 +121,20 @@ import stylistBg from '@/assets/images/STYLISTS/Stylist_background_image.webp'
 
 .stylist-card:hover .stylist-image {
   transform: scale(1.04);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2b2b2b;
+  color: #ffbf00;
+  font-family: 'Noto Sans', serif;
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* ── Info ── */

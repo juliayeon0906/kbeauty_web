@@ -1,36 +1,49 @@
-// Splits one CSV line into cells, honouring "quoted, cells" and "" escapes
-export const parseCsvLine = (line) => {
-  const cells = []
+// Parses a whole CSV document into rows of trimmed cells, honouring
+// "quoted, cells", "" escapes and line breaks inside quoted cells
+// (Alt+Enter in a Google Sheets cell)
+export const parseCsv = (csv) => {
+  const rows = []
+  let row = []
   let cell = ''
   let inQuotes = false
 
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i]
+  const endCell = () => {
+    row.push(cell.trim())
+    cell = ''
+  }
+  const endRow = () => {
+    endCell()
+    rows.push(row)
+    row = []
+  }
+
+  for (let i = 0; i < csv.length; i++) {
+    const char = csv[i]
     if (inQuotes) {
-      if (char === '"' && line[i + 1] === '"') {
+      if (char === '"' && csv[i + 1] === '"') {
         cell += '"'
         i++
       } else if (char === '"') {
         inQuotes = false
-      } else {
+      } else if (char !== '\r') {
         cell += char
       }
     } else if (char === '"') {
       inQuotes = true
     } else if (char === ',') {
-      cells.push(cell)
-      cell = ''
-    } else {
+      endCell()
+    } else if (char === '\n') {
+      endRow()
+    } else if (char !== '\r') {
       cell += char
     }
   }
-  cells.push(cell)
-  return cells.map((value) => value.trim())
+  if (cell || row.length) endRow()
+  return rows
 }
 
 // Data rows of a CSV as arrays of cells (header row dropped)
-export const parseCsvRows = (csv) =>
-  csv.split(/\r?\n/).slice(1).map(parseCsvLine)
+export const parseCsvRows = (csv) => parseCsv(csv).slice(1)
 
 // Fetches a Google Sheets "Publish to web" CSV, bypassing the browser cache
 export async function fetchCsv(url, label) {

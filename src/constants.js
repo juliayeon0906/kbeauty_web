@@ -5,24 +5,27 @@ import GmailIcon from '@/assets/icons/gmail.png'
 import MapIcon from '@/assets/icons/ping_mark.png'
 import InstaIcon from '@/assets/icons/insta_logo.png'
 
-export const STYLISTS_INFO = [
+// Google Sheets "Publish to web" CSV link for the Stylists tab (see docs/stylists.md).
+// Leave empty to always show DEFAULT_STYLISTS.
+export const STYLISTS_CSV_URL =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSSzno2hORDghpCJlQ8xV-TPkfrtEtzt7TiKVBbRwXTu2lvnhhxnta1GYyD16V2MP3UYQ3XE-O_oraE/pub?gid=702972648&single=true&output=csv'
+
+// Shown until the sheet loads, or if it can't be reached. A sheet row with the
+// same name and no Photo link reuses the bundled image below.
+export const DEFAULT_STYLISTS = [
   {
-    STYLISTS: [
-      {
-        name: 'Joy',
-        position: 'Master Stylist',
-        description:
-          'Joy ran a hair salon in Sindorim, Korea, for 18 years, gaining extensive experience in the beauty industry while building a loyal client base. She also served as a supervising professor for graduating students in the Department of Beauty at Hyejeon College, where she guided them in mastering a wide range of beauty techniques and preparing for their professional careers. With expertise in all aspects of beauty, She take pride in delivering exceptional results tailored to each client’s unique needs.',
-        image: JoyImage,
-      },
-      {
-        name: 'Lucy',
-        position: 'Master Stylist',
-        description:
-          'With over 20 years of experience in the beauty industry, Lucy brings extensive expertise to her work. She has styled K-pop stars in Korea, collaborated on fashion magazine shoots, and managed her own salon in Seoul as CEO. After graduating from the Shiseido Beauty Academy in Japan, she further expanded her skills through experiences in Japan, Australia, and Vancouver. Lucy is proficient in all areas of styling, including cuts, perms, coloring, treatments, and updos. She is excited to offer her top-quality services at K-Beauty.',
-        image: LucyImage,
-      },
-    ],
+    name: 'Joy',
+    position: 'Master Stylist',
+    description:
+      'Joy ran a hair salon in Sindorim, Korea, for 18 years, gaining extensive experience in the beauty industry while building a loyal client base. She also served as a supervising professor for graduating students in the Department of Beauty at Hyejeon College, where she guided them in mastering a wide range of beauty techniques and preparing for their professional careers. With expertise in all aspects of beauty, She take pride in delivering exceptional results tailored to each client’s unique needs.',
+    image: JoyImage,
+  },
+  {
+    name: 'Lucy',
+    position: 'Master Stylist',
+    description:
+      'With over 20 years of experience in the beauty industry, Lucy brings extensive expertise to her work. She has styled K-pop stars in Korea, collaborated on fashion magazine shoots, and managed her own salon in Seoul as CEO. After graduating from the Shiseido Beauty Academy in Japan, she further expanded her skills through experiences in Japan, Australia, and Vancouver. Lucy is proficient in all areas of styling, including cuts, perms, coloring, treatments, and updos. She is excited to offer her top-quality services at K-Beauty.',
+    image: LucyImage,
   },
 ]
 
