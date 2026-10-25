@@ -1,17 +1,20 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import ContactUsContainer from './ContactUsContainer.vue'
 import businessHourBg from '@/assets/images/business_hour/Business_Hour.webp'
+import { BUSINESS_HOURS_CSV_URL, DEFAULT_BUSINESS_HOURS } from '@/constants'
+import { fetchBusinessHours } from '@/utils/businessHours'
 
-const businessHour = ref([
-  { day: 'Monday', hour: '10AM – 8PM' },
-  { day: 'Tuesday', hour: '10AM – 7PM' },
-  { day: 'Wednesday', hour: '10AM – 7PM' },
-  { day: 'Thursday', hour: '10AM – 7PM' },
-  { day: 'Friday', hour: '10AM – 8PM' },
-  { day: 'Saturday', hour: '10AM – 7PM' },
-  { day: 'Sunday', hour: '10AM – 6PM' },
-])
+const businessHour = ref(DEFAULT_BUSINESS_HOURS)
+
+onMounted(async () => {
+  if (!BUSINESS_HOURS_CSV_URL) return
+  try {
+    businessHour.value = await fetchBusinessHours()
+  } catch (error) {
+    console.warn('Using default business hours:', error)
+  }
+})
 </script>
 
 <template>
@@ -26,10 +29,12 @@ const businessHour = ref([
         <h2 class="business-title">Business Hours</h2>
         <div class="hour-table">
           <ul class="hour-col">
-            <li v-for="item in businessHour" :key="item.day">{{ item.day }}</li>
+            <li v-for="(item, i) in businessHour" :key="i">{{ item.day }}</li>
           </ul>
           <ul class="hour-col hour-col--gold">
-            <li v-for="item in businessHour" :key="item.hour">{{ item.hour }}</li>
+            <li v-for="(item, i) in businessHour" :key="i">
+              {{ item.hour }}
+            </li>
           </ul>
         </div>
       </div>
@@ -104,6 +109,8 @@ const businessHour = ref([
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
+  /* Day and hour columns are separate lists, so a wrapped line would misalign rows */
+  white-space: nowrap;
 }
 
 .hour-col--gold {

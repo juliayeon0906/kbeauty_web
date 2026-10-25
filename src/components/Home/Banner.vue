@@ -64,7 +64,10 @@ const imageUrl = new URL('@/assets/images/HERO_BANNER.webp', import.meta.url)
   color: #1a1a1a;
   border: none;
   box-shadow: 0 2px 12px rgba(255, 191, 0, 0.4);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 }
 

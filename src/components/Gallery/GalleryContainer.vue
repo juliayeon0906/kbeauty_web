@@ -19,10 +19,23 @@
         :class="{ 'gallery-item--portrait': isPortrait(index) }"
         @click="openLightbox(index)"
       >
-        <img :src="image" alt="K-Beauty Gallery" class="gallery-img" loading="lazy" />
+        <img
+          :src="image"
+          alt="K-Beauty Gallery"
+          class="gallery-img"
+          loading="lazy"
+        />
         <div class="gallery-overlay">
-          <svg class="gallery-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/>
+          <svg
+            class="gallery-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+            />
           </svg>
         </div>
       </div>
@@ -31,26 +44,55 @@
     <!-- Lightbox -->
     <Teleport to="body">
       <transition name="lb-fade">
-        <div v-if="lightboxIndex !== null" class="lightbox" @click.self="closeLightbox">
-          <button class="lb-close" @click="closeLightbox" aria-label="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 6L6 18M6 6l12 12"/>
+        <div
+          v-if="lightboxIndex !== null"
+          class="lightbox"
+          @click.self="closeLightbox"
+        >
+          <button class="lb-close" aria-label="Close" @click="closeLightbox">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
-          <button class="lb-nav lb-prev" @click="prevImage" aria-label="Previous">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M15 18l-6-6 6-6"/>
+          <button
+            class="lb-nav lb-prev"
+            aria-label="Previous"
+            @click="prevImage"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
           <div class="lb-img-wrap">
-            <img :src="images[lightboxIndex]" class="lb-img" alt="Gallery image" />
+            <img
+              :src="images[lightboxIndex]"
+              class="lb-img"
+              alt="Gallery image"
+            />
           </div>
-          <button class="lb-nav lb-next" @click="nextImage" aria-label="Next">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 18l6-6-6-6"/>
+          <button class="lb-nav lb-next" aria-label="Next" @click="nextImage">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
-          <div class="lb-counter">{{ lightboxIndex + 1 }} / {{ images.length }}</div>
+          <div class="lb-counter">
+            {{ lightboxIndex + 1 }} / {{ images.length }}
+          </div>
         </div>
       </transition>
     </Teleport>
@@ -64,7 +106,9 @@ const images = ref([])
 const lightboxIndex = ref(null)
 
 onMounted(() => {
-  const imageModules = import.meta.glob('@/assets/images/GALLERY/*.webp', { eager: true })
+  const imageModules = import.meta.glob('@/assets/images/GALLERY/*.webp', {
+    eager: true,
+  })
   images.value = Object.entries(imageModules)
     .map(([path, mod]) => ({ name: path.split('/').pop(), url: mod.default }))
     .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
@@ -90,7 +134,8 @@ const closeLightbox = () => {
 }
 
 const prevImage = () => {
-  lightboxIndex.value = (lightboxIndex.value - 1 + images.value.length) % images.value.length
+  lightboxIndex.value =
+    (lightboxIndex.value - 1 + images.value.length) % images.value.length
 }
 
 const nextImage = () => {
@@ -198,7 +243,9 @@ const handleKey = (e) => {
   height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.45s ease;
+  transition:
+    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.45s ease;
 }
 
 .gallery-item:hover .gallery-img {
@@ -224,7 +271,7 @@ const handleKey = (e) => {
   width: 40px;
   height: 40px;
   color: #fff;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 /* ── Lightbox ── */
@@ -251,7 +298,7 @@ const handleKey = (e) => {
   max-height: 88vh;
   object-fit: contain;
   display: block;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
 }
 
 .lb-close {
@@ -260,8 +307,8 @@ const handleKey = (e) => {
   right: 28px;
   width: 44px;
   height: 44px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
@@ -278,7 +325,7 @@ const handleKey = (e) => {
 }
 
 .lb-close:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .lb-nav {
@@ -287,8 +334,8 @@ const handleKey = (e) => {
   transform: translateY(-50%);
   width: 52px;
   height: 52px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
@@ -305,7 +352,7 @@ const handleKey = (e) => {
 }
 
 .lb-nav:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .lb-prev {
@@ -324,7 +371,7 @@ const handleKey = (e) => {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
 }
 
@@ -362,8 +409,12 @@ const handleKey = (e) => {
     grid-auto-rows: 260px;
   }
 
-  .lb-prev { left: 10px; }
-  .lb-next { right: 10px; }
+  .lb-prev {
+    left: 10px;
+  }
+  .lb-next {
+    right: 10px;
+  }
 }
 
 @media only screen and (max-width: 560px) {

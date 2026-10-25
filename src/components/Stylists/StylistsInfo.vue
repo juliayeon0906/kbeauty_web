@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="page-wrapper"
-    :style="{ backgroundImage: `url(${stylistBg})` }"
-  >
+  <div class="page-wrapper" :style="{ backgroundImage: `url(${stylistBg})` }">
     <div class="stylists-grid">
       <div
         v-for="(stylist, index) in STYLISTS_INFO[0].STYLISTS"

@@ -4,8 +4,7 @@
   </div>
   <footer class="h-[50px] flex justify-center items-center bg-[#1E1E1E]">
     <p class="text-white font-[300] text-[9px]">
-      Copyright @ 2025 - K BEAUTY HAIR SALON POLICY - Site Designed by Julia
-      Yeon, Hyeonsu Kim
+      Copyright @ 2025 - K BEAUTY HAIR SALON POLICY
     </p>
   </footer>
 </template>

@@ -60,10 +60,14 @@ const props = defineProps({
   width: 24px;
   background-color: rgba(255, 255, 255, 0.2) !important;
   border-radius: 3px;
-  transition: background-color 0.3s ease, width 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    width 0.3s ease;
 }
 
-.p-carousel .p-carousel-indicator.p-carousel-indicator-active .p-carousel-indicator-button {
+.p-carousel
+  .p-carousel-indicator.p-carousel-indicator-active
+  .p-carousel-indicator-button {
   background-color: #ffbf00 !important;
   width: 36px;
 }

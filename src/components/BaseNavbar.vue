@@ -72,8 +72,17 @@ watch(
       <router-link to="/" class="logo-container">
         <img class="logo-img" :src="logo" alt="logo" />
       </router-link>
-      <button class="hamburger-btn" @click="toggleMenu" aria-label="Toggle menu">
-        <img v-if="!isMenuOpened" :src="hamburgerIcon" alt="menu" class="h-[22px]" />
+      <button
+        class="hamburger-btn"
+        aria-label="Toggle menu"
+        @click="toggleMenu"
+      >
+        <img
+          v-if="!isMenuOpened"
+          :src="hamburgerIcon"
+          alt="menu"
+          class="h-[22px]"
+        />
         <img v-else :src="closeIcon" alt="close" class="h-[22px]" />
       </button>
     </div>
@@ -82,9 +91,15 @@ watch(
     <transition name="menu-slide">
       <div v-if="isMobile && isMenuOpened" class="mobile-menu">
         <nav class="mobile-nav">
-          <router-link to="/stylists" class="mobile-nav-link">Stylists</router-link>
-          <router-link to="/services" class="mobile-nav-link">Services</router-link>
-          <router-link to="/gallery" class="mobile-nav-link">Gallery</router-link>
+          <router-link to="/stylists" class="mobile-nav-link"
+            >Stylists</router-link
+          >
+          <router-link to="/services" class="mobile-nav-link"
+            >Services</router-link
+          >
+          <router-link to="/gallery" class="mobile-nav-link"
+            >Gallery</router-link
+          >
           <router-link to="/about" class="mobile-nav-link">About</router-link>
         </nav>
         <router-link to="/reservation">
@@ -103,7 +118,9 @@ watch(
   left: 0;
   width: 100%;
   z-index: 50;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.08),
+    0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* ── Desktop Navbar ── */
@@ -189,7 +206,10 @@ watch(
   border: none;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(255, 191, 0, 0.35);
-  transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -287,7 +307,9 @@ watch(
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(255, 191, 0, 0.35);
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
   white-space: nowrap;
 }
 
@@ -299,7 +321,9 @@ watch(
 /* ── Slide transition ── */
 .menu-slide-enter-active,
 .menu-slide-leave-active {
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 .menu-slide-enter-from,
 .menu-slide-leave-to {

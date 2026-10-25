@@ -18,7 +18,9 @@
         />
         <div class="card-overlay" />
         <div class="card-content">
-          <span class="card-number">{{ String(index + 1).padStart(2, '0') }}</span>
+          <span class="card-number">{{
+            String(index + 1).padStart(2, '0')
+          }}</span>
           <h3 class="service-name">{{ service.name }}</h3>
         </div>
       </router-link>

@@ -1,6 +1,5 @@
 <template>
   <div class="about-page">
-
     <!-- ── Split Hero ── -->
     <section class="about-split">
       <!-- Image Panel -->
@@ -17,7 +16,7 @@
       <div class="split-content">
         <div class="content-inner">
           <p class="content-eyebrow">Halifax, Nova Scotia</p>
-          <h1 class="content-title">About<br>K-Beauty</h1>
+          <h1 class="content-title">About<br />K-Beauty</h1>
           <div class="content-rule">
             <div class="rule-line" />
             <div class="rule-dot" />
@@ -30,9 +29,10 @@
             offer personalized services that bring out your natural beauty.
           </p>
           <p class="content-text">
-            Our team of skilled professionals is dedicated to providing exceptional
-            care in a welcoming, modern space, ensuring every client leaves feeling
-            confident and refreshed. Style and sophistication — always.
+            Our team of skilled professionals is dedicated to providing
+            exceptional care in a welcoming, modern space, ensuring every client
+            leaves feeling confident and refreshed. Style and sophistication —
+            always.
           </p>
           <router-link to="/reservation">
             <button class="content-btn">Book an Appointment</button>
@@ -61,7 +61,6 @@
         <button class="cta-btn">Reserve Your Spot</button>
       </router-link>
     </section>
-
   </div>
 </template>
 
@@ -110,8 +109,8 @@ const values = [
   top: 50%;
   left: 50%;
   /* After rotate(90deg): element height → visual width, element width → visual height */
-  height: 42vw;   /* visual width after rotate = 42% of viewport = container width */
-  width: 90vh;    /* visual height after rotate ≥ container height */
+  height: 42vw; /* visual width after rotate = 42% of viewport = container width */
+  width: 90vh; /* visual height after rotate ≥ container height */
   max-width: none;
   max-height: none;
   transform: translate(-50%, -50%) rotate(90deg);
@@ -160,7 +159,7 @@ const values = [
 .content-title {
   font-size: 58px;
   font-weight: 700;
-  line-height: 1.0;
+  line-height: 1;
   letter-spacing: -0.02em;
   color: #1a1a1a;
   margin-bottom: 28px;
@@ -207,7 +206,10 @@ const values = [
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
   box-shadow: 0 2px 10px rgba(255, 191, 0, 0.3);
 }
 
@@ -303,7 +305,9 @@ const values = [
   border: 1.5px solid #1a1a1a;
   border-radius: 2px;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .cta-btn:hover {
@@ -346,8 +350,8 @@ const values = [
 
   .split-img {
     /* Recalculate for mobile: container is 100vw wide × 65vw tall */
-    height: 100vw;  /* visual width after rotate = 100vw = container width */
-    width: 65vw;    /* visual height after rotate = 65vw = container height */
+    height: 100vw; /* visual width after rotate = 100vw = container width */
+    width: 65vw; /* visual height after rotate = 65vw = container height */
   }
 
   .image-tag {

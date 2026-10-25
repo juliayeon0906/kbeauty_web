@@ -3,7 +3,9 @@
     <div class="inner">
       <div class="text-left">
         <div class="gold-line" />
-        <h2 class="desc-header">Our<br /><span class="highlight">Values</span></h2>
+        <h2 class="desc-header">
+          Our<br /><span class="highlight">Values</span>
+        </h2>
       </div>
       <div class="divider-v" />
       <p class="description">

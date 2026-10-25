@@ -49,6 +49,7 @@ import ReservationFormFormat from '@/components/Reservation/RservationFormFormat
 @media only screen and (max-width: 960px) {
   .reservation-form {
     grid-template-columns: 1fr;
+    align-content: start;
   }
 
   .reservation-form > :first-child {

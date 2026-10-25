@@ -4,9 +4,6 @@ import CallIcon from '@/assets/icons/call_Icon.png'
 import GmailIcon from '@/assets/icons/gmail.png'
 import MapIcon from '@/assets/icons/ping_mark.png'
 import InstaIcon from '@/assets/icons/insta_logo.png'
-import ColourMenu from '@/assets/images/menu/COLOUR_TEXT.png'
-import CutMenu from '@/assets/images/menu/CUT_TEXT.png'
-import PermMenu from '@/assets/images/menu/PERM_TEXT.png'
 
 export const STYLISTS_INFO = [
   {
@@ -52,18 +49,6 @@ export const CONTACT_OPTIONS = [
   },
 ]
 
-export const MENU_OPTIONS = [
-  {
-    image: CutMenu,
-  },
-  {
-    image: PermMenu,
-  },
-  {
-    image: ColourMenu,
-  },
-]
-
 export const REVIEWS = [
   {
     id: '100',
@@ -103,5 +88,99 @@ export const REVIEWS = [
     id: '109',
     content:
       '“It is friendly and has a good atmosphere. They responded with a smile to even difficult orders, and when I visit here, my day feels good. There is a reason why I recommend it.”',
+  },
+]
+
+// Google Sheets "Publish to web" CSV link for the Hours tab (see docs/business-hours.md).
+// Leave empty to always show DEFAULT_BUSINESS_HOURS.
+export const BUSINESS_HOURS_CSV_URL =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vT84TYmcTBt-h5vkC9jzOaRhBv8oP0Pcc152oBaV_NHe2cz9xyAYiTseh-OO4_lpAs-R9mok2VJ_9R3/pub?gid=0&single=true&output=csv'
+
+// Shown until the sheet loads, or if it can't be reached
+export const DEFAULT_BUSINESS_HOURS = [
+  { day: 'Monday', hour: '10AM – 7PM' },
+  { day: 'Tuesday', hour: '10AM – 7PM' },
+  { day: 'Wednesday', hour: '10AM – 6PM' },
+  { day: 'Thursday', hour: '10AM – 6PM' },
+  { day: 'Friday', hour: '10AM – 7PM' },
+  { day: 'Saturday', hour: '10AM – 7PM' },
+  { day: 'Sunday', hour: '11AM – 6PM' },
+]
+
+// Google Sheets "Publish to web" CSV link for the Prices tab (see docs/prices.md).
+// Leave empty to always show DEFAULT_PRICE_MENU.
+export const PRICE_MENU_CSV_URL =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSq3wwxBOeUpYFu3WSUsT0ofMxvMvhKpqaZ0PUrWgKV5KmURTx-RbrWMndR7YowDa0UqenXni3IjyNp/pub?gid=1531924902&single=true&output=csv'
+
+// Shown until the sheet loads, or if it can't be reached.
+// type: 'item' (dot leader + price), 'heading' (bold, no price), 'note' (*By consultation only)
+export const DEFAULT_PRICE_MENU = [
+  {
+    title: 'Cut & Style',
+    subtitle: '',
+    groups: [
+      [
+        { item: 'Men', price: '$30+', type: 'item' },
+        { item: 'Women', price: '$40+', type: 'item' },
+        { item: 'Boy', price: '$25+', type: 'item' },
+        { item: 'Girl', price: '$30+', type: 'item' },
+      ],
+      [
+        { item: 'Trims (Neck/Sideburns)', price: '$10+', type: 'item' },
+        { item: 'Bang Cut', price: '$10+', type: 'item' },
+        { item: 'Shampoo', price: '$5+', type: 'item' },
+      ],
+      [
+        { item: 'Blow-Dry', price: '$35+', type: 'item' },
+        { item: 'Up-Do', price: '$75+', type: 'item' },
+      ],
+    ],
+  },
+  {
+    title: 'Hair Perm',
+    subtitle: '( Shampoo + Cut + Blow Dry )',
+    groups: [
+      [
+        { item: 'Men', price: '$100+', type: 'item' },
+        { item: 'Women', price: '$130+', type: 'item' },
+        { item: 'Down Perm', price: '$50+', type: 'item' },
+        { item: 'Bang Perm', price: '$60+', type: 'item' },
+        { item: 'Bang & Root Perm', price: '$120+', type: 'item' },
+      ],
+      [
+        { item: 'Korean Style Heating Perm', price: '', type: 'heading' },
+        { item: 'Setting Perm', price: '$230+', type: 'item' },
+        { item: 'Straightening Perm', price: '$250+', type: 'item' },
+        { item: 'Design Perm', price: '*By consultation only', type: 'note' },
+      ],
+      [
+        { item: 'Treatment', price: '$30+', type: 'item' },
+        { item: 'Keratin', price: '$300+', type: 'item' },
+      ],
+    ],
+  },
+  {
+    title: 'Colour',
+    subtitle: '( Shampoo + Blow-Dry )',
+    groups: [
+      [
+        { item: 'Root Touch-Up (Up to 1 Inch)', price: '$70+', type: 'item' },
+        { item: 'Root Touch-Up Highlights', price: '$70+', type: 'item' },
+        { item: 'Full Colour', price: 'M $90+  W $110+', type: 'item' },
+        {
+          item: 'Full Head Highlights',
+          price: 'M $90+  W $110+',
+          type: 'item',
+        },
+        { item: 'Half Head Highlights', price: '$130+', type: 'item' },
+        { item: 'Highlights & Toner & Cut', price: '$250+', type: 'item' },
+        { item: 'Balayage', price: '$250+', type: 'item' },
+        {
+          item: 'Design Colour',
+          price: '*By consultation only',
+          type: 'note',
+        },
+      ],
+    ],
   },
 ]
